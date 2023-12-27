@@ -7,6 +7,6 @@ routes.post('/signUp', user.signUp);
 routes.post('/verifyOtp', user.verifyOtp);
 routes.post('/login', user.login);
 routes.put('/updateUser', user.updateUser);
-routes.put('/resendOtp',user.reSendOtp)
+routes.put('/resendOtp',user.reSendOtp);
 
 exports.routes = routes; 
