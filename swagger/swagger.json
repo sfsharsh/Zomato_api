@@ -1,0 +1,1398 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "description": "Swagger Doc For Find-Apps Api ",
+        "version": "1.0.0",
+        "title": "Restaurant Apis"
+    },
+    "tags": [
+        {
+            "name": "List Of API",
+            "description": ""
+        }
+    ],
+    "securityDefinitions": {
+        "Bearer": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    },
+    "paths": {
+        "/user/signUp": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": " UserSignUp",
+                "description": "UserSignUp ",
+                "operationId": "UserSignUp",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/user"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/user"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/user/verifyOtp": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": " verifyOtp",
+                "description": "verifyOtp ",
+                "operationId": "verifyOtp",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/user"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/user"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/user/login": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": " Userlogin",
+                "description": "Userlogin ",
+                "operationId": "Userlogin",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/user"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/user"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/user/resendOtp": {
+            "put": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": " updateUser",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "updateUser ",
+                "operationId": "updateUser",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/user"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/user"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/user/updateUser": {
+            "put": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": " updateUser",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "updateUser ",
+                "operationId": "updateUser",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/user"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/user"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/restaurant/login": {
+            "post": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " Restaurantlogin",
+                "description": "Restaurantlogin ",
+                "operationId": "Restaurantlogin",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/restaurantlogin"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/restaurantlogin"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/restaurant/forgotpassword": {
+            "post": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " forgotpassword",
+                "description": "forgotpassword ",
+                "operationId": "forgotpassword",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/forgotpassword"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/forgotpassword"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/restaurant/changepassword": {
+            "post": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " changepassword",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "changepassword ",
+                "operationId": "changepassword",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/changepassword"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/changepassword"
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/addMenu"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/restaurant/updateRestaurant/{id}": {
+            "put": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " updateRestaurant",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "updateRestaurant ",
+                "operationId": "updateRestaurant",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/updaterestaurant"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/updaterestaurant"
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/updaterestaurant"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/menu/addmenu": {
+            "post": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " createmenu",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "createmenu ",
+                "operationId": "createmenu",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/createmenu"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/createmenu"
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/createmenu"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/menu/getmenu": {
+            "get": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " getmenu",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "getmenu ",
+                "operationId": "getmenu",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/getmenu"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/getmenu"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/menu/getmenubyid/{id}": {
+            "get": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " getmenubyid",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "getmenubyid ",
+                "operationId": "getmenubyid",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/getmenubyid"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/getmenubyid"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/menu/updatemenu/{id}": {
+            "put": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " updatemenu",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "updatemenu ",
+                "operationId": "updatemenu",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/updatemenu"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/updatemenu"
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/updatemenu"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/menu/changemenustatus/{id}": {
+            "put": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " changemenustatus",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "changemenustatus ",
+                "operationId": "changemenustatus",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/changemenustatus"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/changemenustatus"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/menu/deletemenu/{id}": {
+            "delete": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " deletemenu",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "deletemenu ",
+                "operationId": "deletemenu",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/deletemenu"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/deletemenu"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/menu/addsection": {
+            "post": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " createsection",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "createsection ",
+                "operationId": "createsection",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/createsection"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/createsection"
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/createsection"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/menu/getsection": {
+            "get": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " getsection",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "getsection ",
+                "operationId": "getsection",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/getsection"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/getsection"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/menu/getsectionbyid/{id}": {
+            "get": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " getsectionbyid",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "getsectionbyid ",
+                "operationId": "getsectionbyid",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/getsectionbyid"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/getsectionbyid"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/menu/updatesection/{id}": {
+            "put": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " updatesection",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "updatesection ",
+                "operationId": "updatesection",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/updatesection"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/updatesection"
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/updatesection"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/menu/changesectionstatus/{id}": {
+            "put": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " changesectionstatus",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "changesectionstatus ",
+                "operationId": "changesectionstatus",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/changesectionstatus"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/changesectionstatus"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/menu/deletesection/{id}": {
+            "delete": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " deletesection",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "deletesection ",
+                "operationId": "deletesection",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/deletesection"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/deletesection"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        }
+    },
+    "externalDocs": {
+        "description": "Find out more about Swagger",
+        "url": "http://swagger.io"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:4000"
+        }
+    ],
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "in": "header",
+                "bearerFormat": "JWT"
+            }
+        },
+        "schemas": {
+            "user": {
+                "type": "object",
+                "required": [
+                    "email"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "number",
+                        "example": "1"
+                    },
+                    "phone_number": {
+                        "type": "string",
+                        "example": "9996663330"
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Harsh"
+                    },
+                    "age": {
+                        "type": "number",
+                        "example": "23"
+                    },
+                    "email": {
+                        "type": "string",
+                        "example": "example12@gmail.com"
+                    },
+                    "address": {
+                        "type": "string",
+                        "example": "hno 147 mohali tower near shoppig mall punjab"
+                    },
+                    "gender": {
+                        "type": "string",
+                        "example": "male"
+                    },
+                    "otp": {
+                        "type": "string",
+                        "example": "789456"
+                    }
+                }
+            },
+            "restaurantlogin": {
+                "type": "object",
+                "required": [
+                    "email",
+                    "password"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "number",
+                        "example": "1"
+                    },
+                    "email": {
+                        "type": "string",
+                        "example": "apache0225@gmail.com"
+                    },
+                    "password": {
+                        "type": "string",
+                        "example": "12345678"
+                    }
+                }
+            },
+            "forgotpassword": {
+                "type": "object",
+                "required": [
+                    "email"
+                ],
+                "properties": {
+                    "email": {
+                        "type": "string",
+                        "example": "apache0225@gmail.com"
+                    }
+                }
+            },
+            "changepassword": {
+                "type": "object",
+                "required": [
+                    "oldPassword",
+                    "password",
+                    "confirmedPassword"
+                ],
+                "properties": {
+                    "oldPassword": {
+                        "type": "string",
+                        "example": "12345678"
+                    },
+                    "password": {
+                        "type": "string",
+                        "example": "12345678"
+                    },
+                    "confirmedPassword": {
+                        "type": "string",
+                        "example": "12345678"
+                    }
+                }
+            },
+            "deleteRestaurant": {
+                "type": "object",
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "number",
+                        "example": "1"
+                    }
+                }
+            },
+            "updaterestaurant": {
+                "type": "object",
+                "required": [
+                    "id",
+                    "email"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "number",
+                        "example": "1"
+                    },
+                    "phone_number": {
+                        "type": "array",
+                        "example": [
+                            "9996663330",
+                            "7894561239"
+                        ]
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Dominos"
+                    },
+                    "ar_name": {
+                        "type": "number",
+                        "example": "Harsh"
+                    },
+                    "image": {
+                        "type": "file",
+                        "example": "image.jpg"
+                    },
+                    "email": {
+                        "type": "string",
+                        "example": "example12@gmail.com"
+                    },
+                    "password": {
+                        "type": "string",
+                        "example": "12345678"
+                    },
+                    "restaurant_owner_name": {
+                        "type": "string",
+                        "example": "harsh"
+                    },
+                    "address": {
+                        "type": "string",
+                        "example": "hno 34b hdwjj eeuue"
+                    },
+                    "street": {
+                        "type": "string",
+                        "example": "punjab"
+                    },
+                    "country": {
+                        "type": "string",
+                        "example": "india"
+                    },
+                    "restaurant_phones": {
+                        "type": "array",
+                        "example": [
+                            {
+                                "items": {
+                                    "country_code": {
+                                        "type": "Number"
+                                    },
+                                    "phone_number": {
+                                        "type": "Number"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "latitude": {
+                        "type": "string",
+                        "example": "12.32"
+                    },
+                    "longitude": {
+                        "type": "string",
+                        "example": "56.56"
+                    },
+                    "timezone": {
+                        "type": "string",
+                        "example": "utc 21"
+                    },
+                    "restaurant_bio": {
+                        "type": "string",
+                        "example": "dfjwbfewf hfhfewf"
+                    },
+                    "ar_restaurant_bio": {
+                        "type": "string",
+                        "example": "punewfewfefewfjab"
+                    },
+                    "currency": {
+                        "type": "string",
+                        "example": "$"
+                    },
+                    "vat": {
+                        "type": "string",
+                        "example": "15%"
+                    },
+                    "whats_app_notification": {
+                        "type": "boolean",
+                        "example": "false"
+                    },
+                    "payment_enable": {
+                        "type": "boolean",
+                        "example": "true"
+                    },
+                    "subscription_status": {
+                        "type": "boolean",
+                        "example": "true"
+                    },
+                    "disable_order": {
+                        "type": "boolean",
+                        "example": "false"
+                    }
+                }
+            },
+            "createmenu": {
+                "type": "object",
+                "required": [
+                    "name",
+                    "ar_name",
+                    "desc",
+                    "ar_desc",
+                    "image"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "deserts"
+                    },
+                    "ar_name": {
+                        "type": "string",
+                        "example": "adsfg"
+                    },
+                    "image": {
+                        "type": "file",
+                        "example": "deserts.jpg"
+                    },
+                    "desc": {
+                        "type": "string",
+                        "example": "dfghqwertsd"
+                    },
+                    "ar_desc": {
+                        "type": "string",
+                        "example": "sdfghwertyuert"
+                    }
+                }
+            },
+            "getmenu": {
+                "type": "object",
+                "required": [],
+                "properties": {
+                    "id": {
+                        "type": "number",
+                        "example": "1"
+                    }
+                }
+            },
+            "getmenubyid": {
+                "type": "object",
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "number",
+                        "example": "1"
+                    }
+                }
+            },
+            "updatemenu": {
+                "type": "object",
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "deserts"
+                    },
+                    "ar_name": {
+                        "type": "string",
+                        "example": "adsfg"
+                    },
+                    "image": {
+                        "type": "file",
+                        "example": "deserts.jpg"
+                    },
+                    "desc": {
+                        "type": "string",
+                        "example": "dfghqwertsd"
+                    },
+                    "ar_desc": {
+                        "type": "string",
+                        "example": "sdfghwertyuert"
+                    }
+                }
+            },
+            "changemenustatus": {
+                "type": "object",
+                "required": [
+                    "menu_status"
+                ],
+                "properties": {
+                    "menu_status": {
+                        "type": "number",
+                        "example": "1"
+                    }
+                }
+            },
+            "deletemenu": {
+                "type": "object",
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "number",
+                        "example": "1"
+                    }
+                }
+            },
+            "createsection": {
+                "type": "object",
+                "required": [
+                    "section_name",
+                    "ar_section_name",
+                    "menu_id",
+                    "desc",
+                    "ar_desc",
+                    "image"
+                ],
+                "properties": {
+                    "section_name": {
+                        "type": "string",
+                        "example": "deserts"
+                    },
+                    "ar_section_name": {
+                        "type": "string",
+                        "example": "adsfg"
+                    },
+                    "menu_id": {
+                        "type": "string",
+                        "example": "45df5g4ger5gre54g4"
+                    },
+                    "image": {
+                        "type": "file",
+                        "example": "deserts.jpg"
+                    },
+                    "desc": {
+                        "type": "string",
+                        "example": "dfghqwertsd"
+                    },
+                    "ar_desc": {
+                        "type": "string",
+                        "example": "sdfghwertyuert"
+                    }
+                }
+            },
+            "getsection": {
+                "type": "object",
+                "required": [],
+                "properties": {
+                    "id": {
+                        "type": "number",
+                        "example": "1"
+                    }
+                }
+            },
+            "getsectionbyid": {
+                "type": "object",
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "number",
+                        "example": "1"
+                    }
+                }
+            },
+            "updatesection": {
+                "type": "object",
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "deserts"
+                    },
+                    "ar_name": {
+                        "type": "string",
+                        "example": "adsfg"
+                    },
+                    "menu_id": {
+                        "type": "string",
+                        "example": "45df5g4ger5gre54g4"
+                    },
+                    "image": {
+                        "type": "file",
+                        "example": "deserts.jpg"
+                    },
+                    "desc": {
+                        "type": "string",
+                        "example": "dfghqwertsd"
+                    },
+                    "ar_desc": {
+                        "type": "string",
+                        "example": "sdfghwertyuert"
+                    }
+                }
+            },
+            "changesectionstatus": {
+                "type": "object",
+                "required": [
+                    "section_status"
+                ],
+                "properties": {
+                    "section_status": {
+                        "type": "number",
+                        "example": "1"
+                    }
+                }
+            },
+            "deletesection": {
+                "type": "object",
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "number",
+                        "example": "1"
+                    }
+                }
+            },
+            "createsectionitem": {
+                "type": "object",
+                "required": [
+                    "sectionItem_name",
+                    "ar_sectionItem_name",
+                    "menu_id",
+                    "section_id",
+                    "desc",
+                    "ar_desc",
+                    "image",
+                    "allergies",
+                    "price",
+                    "recommended_items"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "deserts"
+                    },
+                    "ar_name": {
+                        "type": "string",
+                        "example": "adsfg"
+                    },
+                    "menu_id": {
+                        "type": "string",
+                        "example": "45df5g4ger5gre54g4"
+                    },
+                    "section_id": {
+                        "type": "string",
+                        "example": "45df5g4ger5gre54g4"
+                    },
+                    "image": {
+                        "type": "file",
+                        "example": "deserts.jpg"
+                    },
+                    "desc": {
+                        "type": "string",
+                        "example": "dfghqwertsd"
+                    },
+                    "ar_desc": {
+                        "type": "string",
+                        "example": "sdfghwertyuert"
+                    },
+                    "mark_section_as_new": {
+                        "type": "number",
+                        "example": 1
+                    },
+                    "mark_section_as_signature": {
+                        "type": "number",
+                        "example": 1
+                    },
+                    "allergies": {
+                        "type": "array",
+                        "example": [
+                            "adsd",
+                            "fqew"
+                        ]
+                    },
+                    "recommended_items": {
+                        "type": "array",
+                        "example": [
+                            "sdfaf",
+                            "ffwefew"
+                        ]
+                    },
+                    "price": {
+                        "type": "array",
+                        "example": {
+                            "medium": 20,
+                            "large": 30
+                        }
+                    }
+                }
+            },
+            "getsectionitem": {
+                "type": "object",
+                "required": [],
+                "properties": {
+                    "id": {
+                        "type": "number",
+                        "example": "1"
+                    }
+                }
+            },
+            "getsectionitembyid": {
+                "type": "object",
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "number",
+                        "example": "1"
+                    }
+                }
+            },
+            "updatesectionitem": {
+                "type": "object",
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "deserts"
+                    },
+                    "ar_name": {
+                        "type": "string",
+                        "example": "adsfg"
+                    },
+                    "menu_id": {
+                        "type": "string",
+                        "example": "45df5g4ger5gre54g4"
+                    },
+                    "section_id": {
+                        "type": "string",
+                        "example": "45df5g4ger5gre54g4"
+                    },
+                    "image": {
+                        "type": "file",
+                        "example": "deserts.jpg"
+                    },
+                    "desc": {
+                        "type": "string",
+                        "example": "dfghqwertsd"
+                    },
+                    "ar_desc": {
+                        "type": "string",
+                        "example": "sdfghwertyuert"
+                    },
+                    "mark_section_as_new": {
+                        "type": "number",
+                        "example": 1
+                    },
+                    "mark_section_as_signature": {
+                        "type": "number",
+                        "example": 1
+                    },
+                    "allergies": {
+                        "type": "array",
+                        "example": [
+                            "adsd",
+                            "fqew"
+                        ]
+                    },
+                    "recommended_items": {
+                        "type": "array",
+                        "example": [
+                            "sdfaf",
+                            "ffwefew"
+                        ]
+                    },
+                    "price": {
+                        "type": "array",
+                        "example": {
+                            "medium": 20,
+                            "large": 30
+                        }
+                    }
+                }
+            },
+            "changesectionitemstatus": {
+                "type": "object",
+                "required": [
+                    "section_status"
+                ],
+                "properties": {
+                    "section_status": {
+                        "type": "number",
+                        "example": "1"
+                    }
+                }
+            },
+            "deletesectionitem": {
+                "type": "object",
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "number",
+                        "example": "1"
+                    }
+                }
+            }
+        }
+    }
+}
