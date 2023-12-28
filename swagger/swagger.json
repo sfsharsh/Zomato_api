@@ -346,21 +346,6 @@
                 ],
                 "description": "getmenu ",
                 "operationId": "getmenu",
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/getmenu"
-                            }
-                        },
-                        "application/xml": {
-                            "schema": {
-                                "$ref": "#/components/schemas/getmenu"
-                            }
-                        }
-                    },
-                    "required": true
-                },
                 "responses": {}
             }
         },
@@ -384,21 +369,6 @@
                         "required": true
                     }
                 ],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/getmenubyid"
-                            }
-                        },
-                        "application/xml": {
-                            "schema": {
-                                "$ref": "#/components/schemas/getmenubyid"
-                            }
-                        }
-                    },
-                    "required": true
-                },
                 "responses": {}
             }
         },
@@ -570,21 +540,6 @@
                 ],
                 "description": "getsection ",
                 "operationId": "getsection",
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/getsection"
-                            }
-                        },
-                        "application/xml": {
-                            "schema": {
-                                "$ref": "#/components/schemas/getsection"
-                            }
-                        }
-                    },
-                    "required": true
-                },
                 "responses": {}
             }
         },
@@ -608,21 +563,6 @@
                         "required": true
                     }
                 ],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/getsectionbyid"
-                            }
-                        },
-                        "application/xml": {
-                            "schema": {
-                                "$ref": "#/components/schemas/getsectionbyid"
-                            }
-                        }
-                    },
-                    "required": true
-                },
                 "responses": {}
             }
         },
@@ -737,6 +677,200 @@
                         "application/xml": {
                             "schema": {
                                 "$ref": "#/components/schemas/deletesection"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/menu/addsectionitem": {
+            "post": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " addsectionitem",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "addsectionitem ",
+                "operationId": "addsectionitem",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/createsectionitem"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/createsectionitem"
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/createsectionitem"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/menu/getsectionitem": {
+            "get": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " getsectionitem",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "getsectionitem ",
+                "operationId": "getsectionitem",
+                "responses": {}
+            }
+        },
+        "/menu/getsectionitembyid/{id}": {
+            "get": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " getsectionitembyid",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "getsectionitembyid ",
+                "operationId": "getsectionitembyid",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/menu/updatesectionitem/{id}": {
+            "put": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " updatesectionitem",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "updatesectionitem ",
+                "operationId": "updatesectionitem",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/updatesectionitem"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/updatesectionitem"
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/updatesectionitem"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/menu/changesectionitemstatus/{id}": {
+            "put": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " changesectionitemstatus",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "changesectionitemstatus ",
+                "operationId": "changesectionitemstatus",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/changesectionitemstatus"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/changesectionitemstatus"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/menu/deletesectionitem/{id}": {
+            "delete": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " deletesectionitem",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "deletesectionitem ",
+                "operationId": "deletesectionitem",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/deletesectionitem"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/deletesectionitem"
                             }
                         }
                     },
@@ -1372,10 +1506,10 @@
             "changesectionitemstatus": {
                 "type": "object",
                 "required": [
-                    "section_status"
+                    "sectionitem_status"
                 ],
                 "properties": {
-                    "section_status": {
+                    "sectionitem_status": {
                         "type": "number",
                         "example": "1"
                     }
