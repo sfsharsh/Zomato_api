@@ -67,8 +67,8 @@ exports.getSectionItemById = async (req, res) => {
     const sectionItem = await SECTIONITEM.find({ _id: id });
     const menuId = sectionItem[0].menu_id
     const sectionId = sectionItem[0].section_id
-    const section = await SECTION.find({ _id: sectionId })
-    const menu = await MENU.find({ _id: menuId })
+    const section = await SECTION.find({ _id: sectionId }).projection({name:1,ar_name:1})
+    const menu = await MENU.find({ _id: menuId }).projection({section_name:1,ar_section_name:1})
     res.json({ 'sectionItem': sectionItem, 'section': section, 'menu': menu })
 }
 
