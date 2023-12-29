@@ -12,8 +12,8 @@ const schema = new mongoose.Schema({
     qr_code_id:{
        type:Number
     },
-    qr_code_group_id:{
-        type:Number
+    qr_code_group:{
+        type:"String"
     },
     order_type: {
         type: String

@@ -55,5 +55,9 @@ module.exports = {
     SECTIONITEMS_CREATED_SUCCESSFULLY:"Section Items Created Successfully",
     ADD_MODIFIER_SUCCESSFULLY:"Modifier Added Successfully",
     MODIFIER_UPDATED_SUCCESSFULLY:"Modifier Updated Successfully",
-    MODIFIER_MUST_NOT_EMPTY:'Modifier is must be not Empty'
+    MODIFIER_MUST_NOT_EMPTY:'Modifier is must be not Empty',
+    GROUP_TYPE_MUST_BE_ATLEAST_3_CHARACTER:"group type must be atleast 3 character",
+    GROUP_NAME_MUST_BE_ATLEAST_3_CHARACTER:"gropu name must be atleast 3 digit ",
+    ARABIC_GROUP_NAME_MUST_NOT_EMPTY:"arabic group name must be atleast 3 digit",
+    ADD_OGROUP_SUCCESSFULLY:"add orderGroup successfully"
 }

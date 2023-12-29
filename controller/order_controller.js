@@ -8,7 +8,7 @@ exports.addorder = [
     body('customer_name').isLength({ min: 3, max: 50 }).withMessage(message.NAME_MUST_BE_ATLEAST_3_CHARACTER),
     body('remark').optional().isLength({ min: 3, max: 50 }).withMessage(message.REMARK_MUST_BE_ATLEAST_3_CHARACTER),
     body('qr_code_id').notEmpty().withMessage(message.QR_CODE_MUST_NOT_BE_EMPTY),
-    body('qr_code_group_id').notEmpty().withMessage(message.QR_CODE_GROUP_MUST_NOT_BE_EMPTY),
+    body('qr_code_group').notEmpty().withMessage(message.QR_CODE_GROUP_MUST_NOT_BE_EMPTY),
     body('order_type').notEmpty().withMessage(message.ORDER_TYPE_MUST_NOT_BE_EMPTY),
     body('phone_number').isLength({ min: 10, max: 10 }).withMessage(message.NUMBER_MUST_BE_10_DIGITS),
     body('country_code').notEmpty().withMessage(message.COUNTRY_CODE_MUST_NOT_BE_EMPTY),
@@ -18,12 +18,12 @@ exports.addorder = [
         if (!result.isEmpty()) {
             return response.errorResponse(res, result.array()[0].msg);
         } else {
-            let { customer_name, remark, qr_code_id, qr_code_group_id, order_type, phone_number, country_code, order_items, special_notes, ar_special_notes, amount, quantity } = req.body
+            let { customer_name, remark, qr_code_id, qr_code_group, order_type, phone_number, country_code, order_items, special_notes, ar_special_notes, amount, quantity } = req.body
             let data = {
                 customer_name: customer_name,
                 remark: remark,
                 qr_code_id: qr_code_id,
-                qr_code_group_id: qr_code_group_id,
+                qr_code_group: qr_code_group,
                 order_type: order_type,
                 phone_number: phone_number,
                 country_code: country_code,
@@ -63,7 +63,7 @@ exports.updateorder = [
     body('customer_name').optional().isLength({ min: 3, max: 50 }).withMessage(message.NAME_MUST_BE_ATLEAST_3_CHARACTER),
     body('remark').optional().isLength({ min: 3, max: 50 }).withMessage(message.REMARK_MUST_BE_ATLEAST_3_CHARACTER),
     body('qr_code_id').optional(),
-    body('qr_code_group_id').optional(),
+    body('qr_code_group').optional(),
     body('order_type').optional(),
     body('phone_number').optional().isLength({ min: 10, max: 10 }).withMessage(message.NUMBER_MUST_BE_10_DIGITS),
     body('country_code').optional(),
@@ -73,7 +73,7 @@ exports.updateorder = [
         if (!result.isEmpty()) {
             return response.errorResponse(res, result.array()[0].msg);
         } else {
-            let { customer_name, remark, qr_code_id, qr_code_group_id, order_type, phone_number, country_code, order_items, special_notes, ar_special_notes, amount, quantity } = req.body
+            let { customer_name, remark, qr_code_id, qr_code_group, order_type, phone_number, country_code, order_items, special_notes, ar_special_notes, amount, quantity } = req.body
             let id = req.params.id;
             const v = await ORDER.find({ _id: id })
             if (v.length > 0) {
@@ -86,7 +86,7 @@ exports.updateorder = [
                     customer_name: customer_name,
                     remark: remark,
                     qr_code_id: qr_code_id,
-                    qr_code_group_id: qr_code_group_id,
+                    qr_code_group: qr_code_group,
                     order_type: order_type,
                     phone_number: phone_number,
                     country_code: country_code,
