@@ -29,7 +29,7 @@ exports.addMenu = [
                 ar_desc: ar_desc
             }
             const v = await MENU.insertMany([data]);
-            return response.successResponse(res, v, message.ADD_MENU_SUCCESSFULLY);
+            return response.successResponse(res, message.ADD_MENU_SUCCESSFULLY);
         }
     }];
 
@@ -82,7 +82,7 @@ exports.updateMenu = [
                     ar_desc: ar_desc
                 }
                 const v = await MENU.updateOne({ $and: [{ restaurant_id: req.currentUser }, { _id: id }] }, data, { new: true });
-                return response.successResponseWithData(res, v, message.MENU_UPDATED_SUCCESSFULLY);
+                return response.successResponse(res, message.MENU_UPDATED_SUCCESSFULLY);
             } else {
                 return response.errorResponse(res, message.DATA_NOT_FOUND)
             }
@@ -96,7 +96,7 @@ exports.changemenustatus = async (req, res) => {
     if (v.length > 0) {
     let data = { menu_status: menu_status }
     const v = await MENU.updateOne({ $and: [{ restaurant_id: req.currentUser }, { _id: id }] }, data, { new: true });
-    return response.successResponseWithData(res, v, message.MENU_UPDATED_SUCCESSFULLY);
+    return response.successResponse(res, message.MENU_UPDATED_SUCCESSFULLY);
     } else {
         return response.errorResponse(res, message.DATA_NOT_FOUND)
     }

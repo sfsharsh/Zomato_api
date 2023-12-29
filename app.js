@@ -21,6 +21,8 @@ const sectionItemRoutes = require('./routes/sectionItem_routes');
 const orderRoutes = require('./routes/order_routes');
 const modifierRoutes = require('./routes/modifier_routes');
 const qrgroupRoutes= require('./routes/orderMenu_group_Routes')
+const qrCodes= require('./routes/qrCodes_Routes')
+
 
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerJSDocs)); 
 app.use('/user', userRoutes.routes);
@@ -31,6 +33,7 @@ app.use('/menu',modifierRoutes.routes);
 app.use('/order',orderRoutes.routes);
 app.use('/restaurant', restaurantRoutes.routes);
 app.use('/qr', qrgroupRoutes.routes);
+app.use('/qr', qrCodes.routes);
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => {

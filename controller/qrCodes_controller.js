@@ -55,7 +55,7 @@ exports.getqrcodeById = async (req, res) => {
 exports.updateqrcode = [
     body('name').optional().isLength({ min: 3, max: 50 }).withMessage(message.NAME_MUST_BE_ATLEAST_3_CHARACTER),
     body('ar_name').optional().isLength({ min: 3, max: 50 }).withMessage(message.NAME_MUST_BE_ATLEAST_3_CHARACTER),
-    body('qr_code_group_id').optional().withMessage(message.QR_CODE_GROUP_ID_MUST_NOT_BE_EMPTY),
+    body('qr_code_group_id').optional(),
     async (req, res) => {
         const result = validationResult(req);
         if (!result.isEmpty()) {
@@ -84,7 +84,7 @@ exports.updateqrcode = [
         }
     }];
 
-exports.changemenustatus = async (req, res) => {
+exports.changeqrcodestatus = async (req, res) => {
     let id = req.params.id;
     let { menu_status } = req.body;
     const v = await QRCODES.find({ _id: id })

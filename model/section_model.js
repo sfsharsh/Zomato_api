@@ -17,7 +17,8 @@ const schema = new mongoose.Schema({
         type : String ,"default": ""
     },
     section_status:{
-        type : Number
+        type : Number,
+        default:1
     }
 }, {
     timestamps: true

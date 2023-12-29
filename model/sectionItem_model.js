@@ -18,7 +18,8 @@ const schema = new mongoose.Schema({
     type: String, arabic: true
   },
   sectionitem_status: {
-    type: Number
+    type: Number,
+    default:1
   },
   mark_section_as_new: {
     type: Number

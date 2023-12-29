@@ -12,7 +12,8 @@ const schema = new mongoose.Schema({
     },
     qr_code_image: [],
     qr_code_status:{
-        type : Number
+        type : Number,
+        default:1
     }
 }, {
     timestamps: true
