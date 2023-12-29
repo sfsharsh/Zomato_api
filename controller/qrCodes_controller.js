@@ -41,6 +41,13 @@ exports.getqrcode = async (req, res) => {
 
 };
 
+exports.generateQR=async(req,res)=>{
+    try{
+        let id=req.params.id
+        let QR=
+    }
+}
+
 exports.getqrcodeById = async (req, res) => {
     const id = req.params.id;
     const d = await QRCODES.find({ $and: [{ restaurant_id: req.currentUser }, { _id: id }] })
