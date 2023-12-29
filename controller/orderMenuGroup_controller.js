@@ -27,7 +27,8 @@ exports.createGroup = [
 
 exports.getgroup = async (req, res) => {
     try {
-        let data = await QRGROUP.find({ restaurant_id: req.curresntUser })
+        let data = await QRGROUP.find({ restaurant_id: req.currentUser })
+        console.log(data)
         if (data.length > 0) {
             return response.successDataResponse(res, data)
         }
@@ -62,9 +63,9 @@ exports.deleteGroup = async (req, res) => {
 }
 
 exports.updateGroup = [
-    body('group_type').isLength({ min: 3, max: 50 }).withMessage(message.GROUP_TYPE_MUST_BE_ATLEAST_3_CHARACTER),
-    body('group_name').isLength({ min: 3, max: 50 }).withMessage(message.GROUP_NAME_MUST_BE_ATLEAST_3_CHARACTER),
-    body('arabic_group_name').isLength({ min: 3, max: 50 }).withMessage(message.ARABIC_GROUP_NAME_MUST_NOT_EMPTY),
+    body('group_type').optional().isLength({ min: 3, max: 50 }).withMessage(message.GROUP_TYPE_MUST_BE_ATLEAST_3_CHARACTER),
+    body('group_name').optional().isLength({ min: 3, max: 50 }).withMessage(message.GROUP_NAME_MUST_BE_ATLEAST_3_CHARACTER),
+    body('arabic_group_name').optional().isLength({ min: 3, max: 50 }).withMessage(message.ARABIC_GROUP_NAME_MUST_NOT_EMPTY),
     async (req, res) => {
         try {
             const result = validationResult(req);
@@ -92,9 +93,9 @@ exports.updateGroup = [
 exports.changeStatus = async (req, res) => {
     try {
         let id = req.params.id
-        let data = QRGROUP.finOne({ _id: id })
+        let data = await QRGROUP.findOne({ _id: id })
         if (data) {
-            if (data.staus = false) {
+            if (data.status == false) {
                 await QRGROUP.updateOne({ _id: id }, { $set: { status: true } })
             } else {
                 await QRGROUP.updateOne({ _id: id }, { $set: { status: false } })

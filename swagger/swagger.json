@@ -1091,6 +1091,119 @@
                     }
                 }
             }
+        },"/qr/getgroups": {
+            "get": {
+                "tags": [
+                    "QR"
+                ],
+                "summary": " getgroups",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "getgroups ",
+                "operationId": "getgroups",
+                "responses": {}
+            }
+        },"/qr/getGroupbyID/{id}": {
+            "get": {
+                "tags": [
+                    "QR"
+                ],
+                "summary": " getGroupbyID",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "getGroupbyID ",
+                "operationId": "getGroupbyID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },"/qr/updateGroup/{id}": {
+            "put": {
+                "tags": [
+                    "QR"
+                ],
+                "summary": " updateGroup",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "updateGroup ",
+                "operationId": "updateGroup",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/restaurantSchema"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },"/qr/changeStatus/{id}": {
+            "put": {
+                "tags": [
+                    "QR"
+                ],
+                "summary": " changeStatus",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "changeStatus ",
+                "operationId": "changeStatus",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },"/qr/deleteGroup/{id}": {
+            "delete": {
+                "tags": [
+                    "QR"
+                ],
+                "summary": " deleteGroup",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "deleteGroup ",
+                "operationId": "deleteGroup",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
         },
         "/qr/addqrcode": {
             "post": {
@@ -2057,94 +2170,93 @@
                     "arabic_group_name": {
                         "type": "string",
                         "example": "جبنه"
+                    }  
+                }           
+            },"createqrcode": {
+                "type": "object",
+                "required": [
+                    "name",
+                    "ar_name",
+                    "qr_code_group_id"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "deserts"
                     },
-                    "createqrcode": {
-                        "type": "object",
-                        "required": [
-                            "name",
-                            "ar_name",
-                            "qr_code_group_id"
-                        ],
-                        "properties": {
-                            "name": {
-                                "type": "string",
-                                "example": "deserts"
-                            },
-                            "ar_name": {
-                                "type": "string",
-                                "example": "adsfg"
-                            },
-                            "qr_code_group_id": {
-                                "type": "string",
-                                "example": "dhrhth4he4e"
-                            }
-                        }
+                    "ar_name": {
+                        "type": "string",
+                        "example": "adsfg"
                     },
-                    "getqrcode": {
-                        "type": "object",
-                        "required": [],
-                        "properties": {
-                            "id": {
-                                "type": "number",
-                                "example": "1"
-                            }
-                        }
+                    "qr_code_group_id": {
+                        "type": "string",
+                        "example": "dhrhth4he4e"
+                    }
+                }
+            },
+            "getqrcode": {
+                "type": "object",
+                "required": [],
+                "properties": {
+                    "id": {
+                        "type": "number",
+                        "example": "1"
+                    }
+                }
+            },
+            "getqrcodebyid": {
+                "type": "object",
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "number",
+                        "example": "1"
+                    }
+                }
+            },
+            "updateqrcode": {
+                "type": "object",
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "deserts"
                     },
-                    "getqrcodebyid": {
-                        "type": "object",
-                        "required": [
-                            "id"
-                        ],
-                        "properties": {
-                            "id": {
-                                "type": "number",
-                                "example": "1"
-                            }
-                        }
+                    "ar_name": {
+                        "type": "string",
+                        "example": "adsfg"
                     },
-                    "updateqrcode": {
-                        "type": "object",
-                        "required": [
-                            "id"
-                        ],
-                        "properties": {
-                            "name": {
-                                "type": "string",
-                                "example": "deserts"
-                            },
-                            "ar_name": {
-                                "type": "string",
-                                "example": "adsfg"
-                            },
-                            "qr_code_group_id": {
-                                "type": "string",
-                                "example": "dhrhth4he4e"
-                            }
-                        }
-                    },
-                    "changeqrcodestatus": {
-                        "type": "object",
-                        "required": [
-                            "modifier_status"
-                        ],
-                        "properties": {
-                            "modifier_status": {
-                                "type": "number",
-                                "example": "1"
-                            }
-                        }
-                    },
-                    "deleteqrcode": {
-                        "type": "object",
-                        "required": [
-                            "id"
-                        ],
-                        "properties": {
-                            "id": {
-                                "type": "number",
-                                "example": "1"
-                            }
-                        }
+                    "qr_code_group_id": {
+                        "type": "string",
+                        "example": "dhrhth4he4e"
+                    }
+                }
+            },
+            "changeqrcodestatus": {
+                "type": "object",
+                "required": [
+                    "modifier_status"
+                ],
+                "properties": {
+                    "modifier_status": {
+                        "type": "number",
+                        "example": "1"
+                    }
+                }
+            },
+            "deleteqrcode": {
+                "type": "object",
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "number",
+                        "example": "1"
                     }
                 }
             }
