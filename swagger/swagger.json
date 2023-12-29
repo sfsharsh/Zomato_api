@@ -2036,7 +2036,6 @@
                         "example": "1"
                     }
                 }
-<<<<<<< HEAD
             },"restaurantSchema": {
                 "type": "object",
                 "required": [
@@ -2056,7 +2055,6 @@
                     "arabic_group_name": {
                         "type": "string",
                         "example": "جبنه"
-=======
             },
             "createqrcode": {
                 "type": "object",
@@ -2143,7 +2141,6 @@
                     "id": {
                         "type": "number",
                         "example": "1"
->>>>>>> ccd35d5dd2c87db8e51696b22e69a245255bc7c6
                     }
                 }
             }
