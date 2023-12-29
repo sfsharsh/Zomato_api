@@ -1072,14 +1072,25 @@
                 },
                 "responses": {}
             }
-<<<<<<< HEAD
-        },"/qr/createQRgroup": {
+        },
+        "/qr/createQRgroup": {
             "post": {
                 "tags": [
                     "QR"
                 ],
                 "summary": " createQRgroup",
-=======
+                "description": "createQRgroup ",
+                "operationId": "createQRgroup",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/restaurantSchema"
+                            }
+                        }
+                    }
+                }
+            }
         },
         "/qr/addqrcode": {
             "post": {
@@ -1087,21 +1098,17 @@
                     "Restaurant"
                 ],
                 "summary": " addqrcode",
->>>>>>> ccd35d5dd2c87db8e51696b22e69a245255bc7c6
                 "security": [
                     {
                         "bearerAuth": []
                     }
                 ],
-                "description": "createQRgroup ",
-                "operationId": "createQRgroup",
                 "description": "addqrcode ",
                 "operationId": "addqrcode",
                 "requestBody": {
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/restaurantSchema"
                                 "$ref": "#/components/schemas/createqrcode"
                             }
                         },
@@ -2030,7 +2037,8 @@
                         "example": "1"
                     }
                 }
-            },"restaurantSchema": {
+            },
+            "restaurantSchema": {
                 "type": "object",
                 "required": [
                     "group_type",
@@ -2049,92 +2057,94 @@
                     "arabic_group_name": {
                         "type": "string",
                         "example": "جبنه"
-            },
-            "createqrcode": {
-                "type": "object",
-                "required": [
-                    "name",
-                    "ar_name",
-                    "qr_code_group_id"
-                ],
-                "properties": {
-                    "name": {
-                        "type": "string",
-                        "example": "deserts"
                     },
-                    "ar_name": {
-                        "type": "string",
-                        "example": "adsfg"
+                    "createqrcode": {
+                        "type": "object",
+                        "required": [
+                            "name",
+                            "ar_name",
+                            "qr_code_group_id"
+                        ],
+                        "properties": {
+                            "name": {
+                                "type": "string",
+                                "example": "deserts"
+                            },
+                            "ar_name": {
+                                "type": "string",
+                                "example": "adsfg"
+                            },
+                            "qr_code_group_id": {
+                                "type": "string",
+                                "example": "dhrhth4he4e"
+                            }
+                        }
                     },
-                    "qr_code_group_id": {
-                        "type": "string",
-                        "example": "dhrhth4he4e"
-                    }
-                }
-            },
-            "getqrcode": {
-                "type": "object",
-                "required": [],
-                "properties": {
-                    "id": {
-                        "type": "number",
-                        "example": "1"
-                    }
-                }
-            },
-            "getqrcodebyid": {
-                "type": "object",
-                "required": [
-                    "id"
-                ],
-                "properties": {
-                    "id": {
-                        "type": "number",
-                        "example": "1"
-                    }
-                }
-            },
-            "updateqrcode": {
-                "type": "object",
-                "required": [
-                    "id"
-                ],
-                "properties": {
-                    "name": {
-                        "type": "string",
-                        "example": "deserts"
+                    "getqrcode": {
+                        "type": "object",
+                        "required": [],
+                        "properties": {
+                            "id": {
+                                "type": "number",
+                                "example": "1"
+                            }
+                        }
                     },
-                    "ar_name": {
-                        "type": "string",
-                        "example": "adsfg"
+                    "getqrcodebyid": {
+                        "type": "object",
+                        "required": [
+                            "id"
+                        ],
+                        "properties": {
+                            "id": {
+                                "type": "number",
+                                "example": "1"
+                            }
+                        }
                     },
-                    "qr_code_group_id": {
-                        "type": "string",
-                        "example": "dhrhth4he4e"
-                    }
-                }
-            },
-            "changeqrcodestatus": {
-                "type": "object",
-                "required": [
-                    "modifier_status"
-                ],
-                "properties": {
-                    "modifier_status": {
-                        "type": "number",
-                        "example": "1"
-                    }
-                }
-            },
-            "deleteqrcode": {
-                "type": "object",
-                "required": [
-                    "id"
-                ],
-                "properties": {
-                    "id": {
-                        "type": "number",
-                        "example": "1"
+                    "updateqrcode": {
+                        "type": "object",
+                        "required": [
+                            "id"
+                        ],
+                        "properties": {
+                            "name": {
+                                "type": "string",
+                                "example": "deserts"
+                            },
+                            "ar_name": {
+                                "type": "string",
+                                "example": "adsfg"
+                            },
+                            "qr_code_group_id": {
+                                "type": "string",
+                                "example": "dhrhth4he4e"
+                            }
+                        }
+                    },
+                    "changeqrcodestatus": {
+                        "type": "object",
+                        "required": [
+                            "modifier_status"
+                        ],
+                        "properties": {
+                            "modifier_status": {
+                                "type": "number",
+                                "example": "1"
+                            }
+                        }
+                    },
+                    "deleteqrcode": {
+                        "type": "object",
+                        "required": [
+                            "id"
+                        ],
+                        "properties": {
+                            "id": {
+                                "type": "number",
+                                "example": "1"
+                            }
+                        }
                     }
                 }
             }
