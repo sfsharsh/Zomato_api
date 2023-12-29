@@ -1093,20 +1093,15 @@
                         "bearerAuth": []
                     }
                 ],
-<<<<<<< HEAD
                 "description": "createQRgroup ",
                 "operationId": "createQRgroup",
-=======
                 "description": "addqrcode ",
                 "operationId": "addqrcode",
->>>>>>> ccd35d5dd2c87db8e51696b22e69a245255bc7c6
                 "requestBody": {
                     "content": {
                         "application/json": {
                             "schema": {
-<<<<<<< HEAD
                                 "$ref": "#/components/schemas/restaurantSchema"
-=======
                                 "$ref": "#/components/schemas/createqrcode"
                             }
                         },
@@ -1276,7 +1271,6 @@
                         "application/xml": {
                             "schema": {
                                 "$ref": "#/components/schemas/deleteqrcode"
->>>>>>> ccd35d5dd2c87db8e51696b22e69a245255bc7c6
                             }
                         }
                     },
