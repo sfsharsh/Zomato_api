@@ -1072,6 +1072,31 @@
                 },
                 "responses": {}
             }
+        },"/qr/createQRgroup": {
+            "post": {
+                "tags": [
+                    "QR"
+                ],
+                "summary": " createQRgroup",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "createQRgroup ",
+                "operationId": "createQRgroup",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/restaurantSchema"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
         }
     },
     "externalDocs": {
@@ -1822,6 +1847,27 @@
                     "id": {
                         "type": "number",
                         "example": "1"
+                    }
+                }
+            },"restaurantSchema": {
+                "type": "object",
+                "required": [
+                    "group_type",
+                    "group_name",
+                    "arabic_group_name"
+                ],
+                "properties": {
+                    "group_type": {
+                        "type": "string",
+                        "example": "deserts"
+                    },
+                    "group_name": {
+                        "type": "string",
+                        "example": "adsfg"
+                    },
+                    "arabic_group_name": {
+                        "type": "string",
+                        "example": "جبنه"
                     }
                 }
             }

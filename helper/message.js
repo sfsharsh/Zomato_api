@@ -62,5 +62,9 @@ module.exports = {
     ARABIC_GROUP_NAME_MUST_NOT_EMPTY:"arabic group name must be atleast 3 digit",
     ADD_OGROUP_SUCCESSFULLY:"add orderGroup successfully",
     ADD_QRCODES_SUCCESSFULLY:"QR Code Added Successfully",
-    QRCODES_UPDATED_SUCCESSFULLY:"QR Code Updated Successfully"
+    QRCODES_UPDATED_SUCCESSFULLY:"QR Code Updated Successfully",
+    INTERNAL_ERROR:"internal error",
+    NO_DATA_FOUND:"No data found",
+    Group_UPDATED_SUCCESSFULLY:'group Updated Successfully',
+    STATUS_UPDATED_SUCCESSFULLY:'status Updated Successfully'
 }

@@ -41,7 +41,13 @@ module.exports = {
         }
         return res.status(200).json(data);
     },
-
+    noDataResponse:(res,msg)=>{
+        var data={
+            status:404,
+            msg:msg,
+        }
+        return res.status(200).json(msg)
+    },
     successResponseWithAnotherStatus: (res, msg) => {
         var data = {
             status: 203,
@@ -111,4 +117,11 @@ module.exports = {
             error: err
         });
     },
+    successDataResponse: (res, data)=>{
+        var data={
+            status: 200,
+            data: data
+        };
+        return res.status(200).json(data)
+    }
 }
