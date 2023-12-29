@@ -878,6 +878,200 @@
                 },
                 "responses": {}
             }
+        },
+        "/menu/addmodifier": {
+            "post": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " addmodifier",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "addmodifier ",
+                "operationId": "addmodifier",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/addmodifier"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/addmodifier"
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/addmodifier"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/menu/getmodifier": {
+            "get": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " getmodifier",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "getmodifier ",
+                "operationId": "getmodifier",
+                "responses": {}
+            }
+        },
+        "/menu/getmodifierbyid/{id}": {
+            "get": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " getmodifierbyid",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "getmodifierbyid ",
+                "operationId": "getmodifierbyid",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/menu/updatemodifier/{id}": {
+            "put": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " updatemodifier",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "updatemodifier ",
+                "operationId": "updatemodifier",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/updatemodifier"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/updatemodifier"
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/updatemodifier"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/menu/changemodifierstatus/{id}": {
+            "put": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " changemodifierstatus",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "changemodifierstatus ",
+                "operationId": "changemodifierstatus",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/changemodifierstatus"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/changemodifierstatus"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/menu/deletemodifier/{id}": {
+            "delete": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " deletemodifier",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "deletemodifier ",
+                "operationId": "deletemodifier",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/deletemodifier"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/deletemodifier"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
         }
     },
     "externalDocs": {
@@ -1516,6 +1710,110 @@
                 }
             },
             "deletesectionitem": {
+                "type": "object",
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "number",
+                        "example": "1"
+                    }
+                }
+            },
+            "createmodifier": {
+                "type": "object",
+                "required": [
+                    "name",
+                    "ar_name",
+                    "modifier"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "deserts"
+                    },
+                    "ar_name": {
+                        "type": "string",
+                        "example": "adsfg"
+                    },
+                    "modifier": {
+                        "type": "array",
+                        "example": [
+                            {
+                                "name": "Cheese",
+                                "ar_name": "جبنه",
+                                "price": "1",
+                                "calories": "20",
+                                "status": true
+                            }
+                        ]
+                    }
+                }
+            },
+            "getmodifier": {
+                "type": "object",
+                "required": [],
+                "properties": {
+                    "id": {
+                        "type": "number",
+                        "example": "1"
+                    }
+                }
+            },
+            "getmodifierbyid": {
+                "type": "object",
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "number",
+                        "example": "1"
+                    }
+                }
+            },
+            "updatemodifier": {
+                "type": "object",
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "deserts"
+                    },
+                    "ar_name": {
+                        "type": "string",
+                        "example": "adsfg"
+                    },
+                    "modifier": {
+                        "type": "array",
+                        "example": [
+                            {
+                                "name": "Cheese",
+                                "ar_name": "جبنه",
+                                "price": "1",
+                                "calories": "20",
+                                "status": true
+                            }
+                        ]
+                    }
+                }
+            },
+            "changesmodifierstatus": {
+                "type": "object",
+                "required": [
+                    "modifier_status"
+                ],
+                "properties": {
+                    "modifier_status": {
+                        "type": "number",
+                        "example": "1"
+                    }
+                }
+            },
+            "deletemodifier": {
                 "type": "object",
                 "required": [
                     "id"

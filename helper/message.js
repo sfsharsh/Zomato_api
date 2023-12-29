@@ -15,6 +15,7 @@ module.exports = {
     DESC_MUST_BE_ATLEAST_10_CHARACTER:'Description is must be atleast 10 character',
     NUMBER_MUST_BE_10_DIGITS:'Number must be 10 digits',
     QR_CODE_MUST_NOT_BE_EMPTY:'QR Code must not be Empty',
+    QR_CODE_GROUP_ID_MUST_NOT_BE_EMPTY:'QR Code Group ID must not be Empty',
     COUNTRY_CODE_MUST_NOT_BE_EMPTY:'Country Code must not be Empty',
     AMOUNT_MUST_NOT_BE_EMPTY:'Amount must not be Empty',
     QUANTITY_MUST_NOT_BE_EMPTY:'Quantity must not be Empty',
@@ -56,8 +57,13 @@ module.exports = {
     ADD_MODIFIER_SUCCESSFULLY:"Modifier Added Successfully",
     MODIFIER_UPDATED_SUCCESSFULLY:"Modifier Updated Successfully",
     MODIFIER_MUST_NOT_EMPTY:'Modifier is must be not Empty',
+<<<<<<< HEAD
     GROUP_TYPE_MUST_BE_ATLEAST_3_CHARACTER:"group type must be atleast 3 character",
     GROUP_NAME_MUST_BE_ATLEAST_3_CHARACTER:"gropu name must be atleast 3 digit ",
     ARABIC_GROUP_NAME_MUST_NOT_EMPTY:"arabic group name must be atleast 3 digit",
     ADD_OGROUP_SUCCESSFULLY:"add orderGroup successfully"
+=======
+    ADD_QRCODES_SUCCESSFULLY:"QR Code Added Successfully",
+    QRCODES_UPDATED_SUCCESSFULLY:"QR Code Updated Successfully"
+>>>>>>> bfdebd4728f82591867bf81b418e62ebc0ed058c
 }
