@@ -18,7 +18,8 @@ const schema = new mongoose.Schema({
         }
     ],
     modifier_status:{
-        type:Number
+        type:Number,
+        default:1
     }
 }, {
     timestamps: true

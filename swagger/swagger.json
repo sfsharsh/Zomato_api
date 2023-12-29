@@ -896,17 +896,17 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/addmodifier"
+                                "$ref": "#/components/schemas/createmodifier"
                             }
                         },
                         "application/xml": {
                             "schema": {
-                                "$ref": "#/components/schemas/addmodifier"
+                                "$ref": "#/components/schemas/createmodifier"
                             }
                         },
                         "multipart/form-data": {
                             "schema": {
-                                "$ref": "#/components/schemas/addmodifier"
+                                "$ref": "#/components/schemas/createmodifier"
                             }
                         }
                     },
@@ -1065,6 +1065,200 @@
                         "application/xml": {
                             "schema": {
                                 "$ref": "#/components/schemas/deletemodifier"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/qr/addqrcode": {
+            "post": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " addqrcode",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "addqrcode ",
+                "operationId": "addqrcode",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/createqrcode"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/createqrcode"
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/createqrcode"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/qr/getqrcode": {
+            "get": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " getqrcode",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "getqrcode ",
+                "operationId": "getqrcode",
+                "responses": {}
+            }
+        },
+        "/qr/getqrcodebyid/{id}": {
+            "get": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " getqrcodebyid",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "getqrcodebyid ",
+                "operationId": "getqrcodebyid",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/qr/updateqrcode/{id}": {
+            "put": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " updateqrcode",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "updateqrcode ",
+                "operationId": "updateqrcode",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/updateqrcode"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/updateqrcode"
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/updateqrcode"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/qr/changeqrcodestatus/{id}": {
+            "put": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " changeqrcodestatus",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "changeqrcodestatus ",
+                "operationId": "changeqrcodestatus",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/changeqrcodestatus"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/changeqrcodestatus"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/qr/deleteqrcode/{id}": {
+            "delete": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " deleteqrcode",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "deleteqrcode ",
+                "operationId": "deleteqrcode",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/deleteqrcode"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/deleteqrcode"
                             }
                         }
                     },
@@ -1814,6 +2008,94 @@
                 }
             },
             "deletemodifier": {
+                "type": "object",
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "number",
+                        "example": "1"
+                    }
+                }
+            },
+            "createqrcode": {
+                "type": "object",
+                "required": [
+                    "name",
+                    "ar_name",
+                    "qr_code_group_id"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "deserts"
+                    },
+                    "ar_name": {
+                        "type": "string",
+                        "example": "adsfg"
+                    },
+                    "qr_code_group_id": {
+                        "type": "string",
+                        "example": "dhrhth4he4e"
+                    }
+                }
+            },
+            "getqrcode": {
+                "type": "object",
+                "required": [],
+                "properties": {
+                    "id": {
+                        "type": "number",
+                        "example": "1"
+                    }
+                }
+            },
+            "getqrcodebyid": {
+                "type": "object",
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "number",
+                        "example": "1"
+                    }
+                }
+            },
+            "updateqrcode": {
+                "type": "object",
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "deserts"
+                    },
+                    "ar_name": {
+                        "type": "string",
+                        "example": "adsfg"
+                    },
+                    "qr_code_group_id": {
+                        "type": "string",
+                        "example": "dhrhth4he4e"
+                    }
+                }
+            },
+            "changeqrcodestatus": {
+                "type": "object",
+                "required": [
+                    "modifier_status"
+                ],
+                "properties": {
+                    "modifier_status": {
+                        "type": "number",
+                        "example": "1"
+                    }
+                }
+            },
+            "deleteqrcode": {
                 "type": "object",
                 "required": [
                     "id"
