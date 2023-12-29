@@ -34,7 +34,7 @@ exports.addorder = [
                 quantity: quantity
             }
             const v = await ORDER.insertMany([data]);
-            return response.successResponse(res, v, message.ADD_ORDER_SUCCESSFULLY);
+            return response.successResponse(res, message.ADD_ORDER_SUCCESSFULLY);
         }
     }];
 
@@ -43,7 +43,7 @@ exports.getorder = async (req, res) => {
     if (!d) {
         return response.errorResponse(res, message.DATA_NOT_FOUND)
     } else {
-        return response.successResponse(res, d, message.GET_DATA_SUCCESSFULLY)
+        return response.successResponseWithData(res, d, message.GET_DATA_SUCCESSFULLY)
     }
 
 };
@@ -54,7 +54,7 @@ exports.getorderById = async (req, res) => {
     if (!d) {
         return response.errorResponse(res, message.DATA_NOT_FOUND)
     } else {
-        return response.successResponse(res, d, message.GET_DATA_SUCCESSFULLY)
+        return response.successResponseWithData(res, d, message.GET_DATA_SUCCESSFULLY)
     }
 
 };

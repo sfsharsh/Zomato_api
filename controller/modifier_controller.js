@@ -29,7 +29,7 @@ exports.getmodifier = async (req, res) => {
     if (!d) {
         return response.errorResponse(res, message.DATA_NOT_FOUND)
     } else {
-        return response.successResponse(res, d, message.GET_DATA_SUCCESSFULLY)
+        return response.successResponseWithData(res, d, message.GET_DATA_SUCCESSFULLY)
     }
 
 };
@@ -40,7 +40,7 @@ exports.getmodifierById = async (req, res) => {
     if (!d) {
         return response.errorResponse(res, message.DATA_NOT_FOUND)
     } else {
-        return response.successResponse(res, d, message.GET_DATA_SUCCESSFULLY)
+        return response.successResponseWithData(res, d, message.GET_DATA_SUCCESSFULLY)
     }
 
 };

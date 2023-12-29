@@ -15,6 +15,7 @@ module.exports = {
     DESC_MUST_BE_ATLEAST_10_CHARACTER:'Description is must be atleast 10 character',
     NUMBER_MUST_BE_10_DIGITS:'Number must be 10 digits',
     QR_CODE_MUST_NOT_BE_EMPTY:'QR Code must not be Empty',
+    QR_CODE_GROUP_ID_MUST_NOT_BE_EMPTY:'QR Code Group ID must not be Empty',
     COUNTRY_CODE_MUST_NOT_BE_EMPTY:'Country Code must not be Empty',
     AMOUNT_MUST_NOT_BE_EMPTY:'Amount must not be Empty',
     QUANTITY_MUST_NOT_BE_EMPTY:'Quantity must not be Empty',
@@ -55,5 +56,7 @@ module.exports = {
     SECTIONITEMS_CREATED_SUCCESSFULLY:"Section Items Created Successfully",
     ADD_MODIFIER_SUCCESSFULLY:"Modifier Added Successfully",
     MODIFIER_UPDATED_SUCCESSFULLY:"Modifier Updated Successfully",
-    MODIFIER_MUST_NOT_EMPTY:'Modifier is must be not Empty'
+    MODIFIER_MUST_NOT_EMPTY:'Modifier is must be not Empty',
+    ADD_QRCODES_SUCCESSFULLY:"QR Code Added Successfully",
+    QRCODES_UPDATED_SUCCESSFULLY:"QR Code Updated Successfully"
 }

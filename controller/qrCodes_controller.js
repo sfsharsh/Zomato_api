@@ -1,40 +1,38 @@
-const MENU = require('../model/menu_model');
+const QRCODES = require('../model/qrCodes_model');
 const response = require('../helper/response');
 const message = require('../helper/message')
 const { body, validationResult } = require('express-validator');
 
 
-exports.addMenu = [
+exports.addqrcode = [
     body('name').isLength({ min: 3, max: 50 }).withMessage(message.NAME_MUST_BE_ATLEAST_3_CHARACTER),
     body('ar_name').isLength({ min: 3, max: 50 }).withMessage(message.NAME_MUST_BE_ATLEAST_3_CHARACTER),
-    body('desc').isLength({ min: 10, max: 100 }).withMessage(message.DESC_MUST_BE_ATLEAST_10_CHARACTER),
-    body('ar_desc').isLength({ min: 10, max: 100 }).withMessage(message.DESC_MUST_BE_ATLEAST_10_CHARACTER),
+    body('qr_code_group_id').notEmpty().withMessage(message.QR_CODE_GROUP_ID_MUST_NOT_BE_EMPTY),
     async (req, res) => {
         const result = validationResult(req);
         if (!result.isEmpty()) {
             return response.errorResponse(res, result.array()[0].msg);
         } else {
-            let { name, ar_name, desc, ar_desc } = req.body
+            let { name, ar_name, qr_code_group_id} = req.body
             console.log(req.files[0]);
             let arr = [];
             for (let i = 0; i < req.files.length; i++) {
                 arr.push(req.files[i].originalname)
             }
             let data = {
-                restaurant_id: req.currentUser,
                 name: name,
                 ar_name: ar_name,
-                image: arr,
-                desc: desc,
-                ar_desc: ar_desc
+                qr_code_image: arr,
+                qr_code_group_id:qr_code_group_id,
+                restaurant_id:req.currentUser
             }
-            const v = await MENU.insertMany([data]);
-            return response.successResponse(res, v, message.ADD_MENU_SUCCESSFULLY);
+            const v = await QRCODES.insertMany([data]);
+            return response.successResponse(res, v, message.ADD_QRCODES_SUCCESSFULLY);
         }
     }];
 
-exports.getMenu = async (req, res) => {
-    const d = await MENU.find({ restaurant_id: req.currentUser })
+exports.getqrcode = async (req, res) => {
+    const d = await QRCODES.find({ restaurant_id: req.currentUser})
     if (!d) {
         return response.errorResponse(res, message.DATA_NOT_FOUND)
     } else {
@@ -43,9 +41,9 @@ exports.getMenu = async (req, res) => {
 
 };
 
-exports.getMenuById = async (req, res) => {
+exports.getqrcodeById = async (req, res) => {
     const id = req.params.id;
-    const d = await MENU.find({ $and: [{ restaurant_id: req.currentUser }, { _id: id }] })
+    const d = await QRCODES.find({ $and: [{ restaurant_id: req.currentUser }, { _id: id }] })
     if (!d) {
         return response.errorResponse(res, message.DATA_NOT_FOUND)
     } else {
@@ -54,19 +52,18 @@ exports.getMenuById = async (req, res) => {
 
 };
 
-exports.updateMenu = [
+exports.updateqrcode = [
     body('name').optional().isLength({ min: 3, max: 50 }).withMessage(message.NAME_MUST_BE_ATLEAST_3_CHARACTER),
     body('ar_name').optional().isLength({ min: 3, max: 50 }).withMessage(message.NAME_MUST_BE_ATLEAST_3_CHARACTER),
-    body('desc').optional().isLength({ min: 10, max: 100 }).withMessage(message.DESC_MUST_BE_ATLEAST_10_CHARACTER),
-    body('ar_desc').optional().isLength({ min: 10, max: 100 }).withMessage(message.DESC_MUST_BE_ATLEAST_10_CHARACTER),
+    body('qr_code_group_id').optional().withMessage(message.QR_CODE_GROUP_ID_MUST_NOT_BE_EMPTY),
     async (req, res) => {
         const result = validationResult(req);
         if (!result.isEmpty()) {
             return response.errorResponse(res, result.array()[0].msg);
         } else {
-            let { name, ar_name, desc, ar_desc } = req.body
+            let { name, ar_name, qr_code_group_id } = req.body
             let id = req.params.id;
-            const v = await MENU.find({ _id: id })
+            const v = await QRCODES.find({ _id: id })
             if (v.length > 0) {
                 console.log(req.files[0]);
                 let arr = [];
@@ -74,15 +71,13 @@ exports.updateMenu = [
                     arr.push(req.files[i].originalname)
                 }
                 let data = {
-                    restaurant_id: req.currentUser,
                     name: name,
                     ar_name: ar_name,
-                    image: arr,
-                    desc: desc,
-                    ar_desc: ar_desc
+                    qr_code_image: arr,
+                    qr_code_group_id:qr_code_group_id
                 }
-                const v = await MENU.updateOne({ $and: [{ restaurant_id: req.currentUser }, { _id: id }] }, data, { new: true });
-                return response.successResponseWithData(res, v, message.MENU_UPDATED_SUCCESSFULLY);
+                const v = await QRCODES.updateOne({ $and: [{ restaurant_id: req.currentUser }, { _id: id }] }, data, { new: true });
+                return response.successResponse(res, message.QRCODES_UPDATED_SUCCESSFULLY);
             } else {
                 return response.errorResponse(res, message.DATA_NOT_FOUND)
             }
@@ -92,19 +87,19 @@ exports.updateMenu = [
 exports.changemenustatus = async (req, res) => {
     let id = req.params.id;
     let { menu_status } = req.body;
-    const v = await MENU.find({ _id: id })
+    const v = await QRCODES.find({ _id: id })
     if (v.length > 0) {
     let data = { menu_status: menu_status }
-    const v = await MENU.updateOne({ $and: [{ restaurant_id: req.currentUser }, { _id: id }] }, data, { new: true });
-    return response.successResponseWithData(res, v, message.MENU_UPDATED_SUCCESSFULLY);
+    const v = await QRCODES.updateOne({ $and: [{ restaurant_id: req.currentUser }, { _id: id }] }, data, { new: true });
+    return response.successResponse(res, message.QRCODES_UPDATED_SUCCESSFULLY);
     } else {
         return response.errorResponse(res, message.DATA_NOT_FOUND)
     }
 };
 
-exports.deleteMenu = async (req, res) => {
+exports.deleteqrcode = async (req, res) => {
     let id = req.params.id
-    const d = await MENU.deleteOne({ $and: [{ restaurant_id: req.currentUser }, { _id: id }] })
+    const d = await QRCODES.deleteOne({ $and: [{ restaurant_id: req.currentUser }, { _id: id }] })
     if (!d) {
         return response.errorResponse(res, message.FAILED_TO_DELETE_DATA)
     } else {
