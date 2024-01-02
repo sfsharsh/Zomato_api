@@ -13,26 +13,21 @@ exports.addqrcode = [
         if (!result.isEmpty()) {
             return response.errorResponse(res, result.array()[0].msg);
         } else {
-            let { name, ar_name, qr_code_group_id} = req.body
-            console.log(req.files[0]);
-            let arr = [];
-            for (let i = 0; i < req.files.length; i++) {
-                arr.push(req.files[i].originalname)
-            }
+            let { name, ar_name, qr_code_group_id } = req.body;
             let data = {
                 name: name,
                 ar_name: ar_name,
-                qr_code_image: arr,
-                qr_code_group_id:qr_code_group_id,
-                restaurant_id:req.currentUser
-            }
+                qr_code_image: req.files[0].originalname,
+                qr_code_group_id: qr_code_group_id,
+                restaurant_id: req.currentUser
+            };
             const v = await QRCODES.insertMany([data]);
-            return response.successResponse(res, v, message.ADD_QRCODES_SUCCESSFULLY);
-        }
+            return response.successResponse(res, message.ADD_QRCODES_SUCCESSFULLY);
+        };
     }];
 
 exports.getqrcode = async (req, res) => {
-    const d = await QRCODES.find({ restaurant_id: req.currentUser})
+    const d = await QRCODES.find({ restaurant_id: req.currentUser })
     if (!d) {
         return response.errorResponse(res, message.DATA_NOT_FOUND)
     } else {
@@ -41,11 +36,11 @@ exports.getqrcode = async (req, res) => {
 
 };
 
-exports.generateQR=async(req,res)=>{
-    try{
-        let id=req.params.id
-        let QR=req.body
-    }catch{
+exports.generateQR = async (req, res) => {
+    try {
+        let id = req.params.id
+        let QR = req.body
+    } catch {
 
     }
 }
@@ -83,7 +78,7 @@ exports.updateqrcode = [
                     name: name,
                     ar_name: ar_name,
                     qr_code_image: arr,
-                    qr_code_group_id:qr_code_group_id
+                    qr_code_group_id: qr_code_group_id
                 }
                 const v = await QRCODES.updateOne({ $and: [{ restaurant_id: req.currentUser }, { _id: id }] }, data, { new: true });
                 return response.successResponse(res, message.QRCODES_UPDATED_SUCCESSFULLY);
@@ -99,9 +94,9 @@ exports.changeqrcodestatus = async (req, res) => {
     let { menu_status } = req.body;
     const v = await QRCODES.find({ _id: id })
     if (v.length > 0) {
-    let data = { menu_status: menu_status }
-    const v = await QRCODES.updateOne({ $and: [{ restaurant_id: req.currentUser }, { _id: id }] }, data, { new: true });
-    return response.successResponse(res, message.QRCODES_UPDATED_SUCCESSFULLY);
+        let data = { menu_status: menu_status }
+        const v = await QRCODES.updateOne({ $and: [{ restaurant_id: req.currentUser }, { _id: id }] }, data, { new: true });
+        return response.successResponse(res, message.QRCODES_UPDATED_SUCCESSFULLY);
     } else {
         return response.errorResponse(res, message.DATA_NOT_FOUND)
     }
