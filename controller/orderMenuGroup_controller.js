@@ -15,6 +15,7 @@ exports.createGroup = [
             } else {
                 let { group_type, group_name, arabic_group_name } = req.body
                 let data = {
+                    restaurant_id: req.currentUser,
                     group_type: group_type,
                     group_name: group_name,
                     arabic_group_name: arabic_group_name,

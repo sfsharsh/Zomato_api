@@ -15,6 +15,7 @@ exports.addqrcode = [
         } else {
             let { name, ar_name, qr_code_group_id } = req.body;
             let data = {
+                restaurant_id: req.currentUser,
                 name: name,
                 ar_name: ar_name,
                 qr_code_image: req.files[0].originalname,

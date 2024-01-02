@@ -3,6 +3,7 @@ const { Schema } = mongoose;
 
 const schema = new mongoose.Schema({
     menu_id: { type: Schema.Types.ObjectId, ref: 'menu' },
+    restaurant_id: { type: Schema.Types.ObjectId, ref: 'restaurant' },
     section_name: {
         type: String
     },

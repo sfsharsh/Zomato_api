@@ -5,7 +5,7 @@ const response = require('../helper/response');
 const { body, validationResult } = require('express-validator');
 
 exports.getMenu = async (req, res) => {
-    const menu = await MENU.find({})
+    const menu = await MENU.find({ restaurant_id: req.currentUser })
     res.json(menu)
 }
 
@@ -21,12 +21,12 @@ exports.addSection = [
             return response.errorResponse(res, result.array()[0].msg);
         } else {
             let { section_name, ar_section_name, menu_id, desc, ar_desc } = req.body
-            //console.log(req.files[0]);
             let arr = [];
             for (let i = 0; i < req.files.length; i++) {
                 arr.push(req.files[i].originalname)
             }
             let data = {
+                restaurant_id: req.currentUser,
                 section_name: section_name,
                 ar_section_name: ar_section_name,
                 image: arr,
@@ -40,7 +40,7 @@ exports.addSection = [
     }];
 
 exports.getSection = async (req, res) => {
-    const section = await SECTION.find({})
+    const section = await SECTION.find({ restaurant_id: req.currentUser })
     res.json(section)
 }
 
@@ -67,7 +67,6 @@ exports.updateSection = [
             let id = req.params.id;
             const v = await SECTION.find({ _id: id })
             if (v.length > 0) {
-                console.log(req.files[0]);
                 let arr = [];
                 for (let i = 0; i < req.files.length; i++) {
                     arr.push(req.files[i].originalname)

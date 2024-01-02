@@ -4,7 +4,8 @@ const { Schema } = mongoose;
 const schema = new mongoose.Schema({
   menu_id: { type: Schema.Types.ObjectId, ref: 'menu' },
   section_id: { type: Schema.Types.ObjectId, ref: 'section' },
-  name: {
+  restaurant_id: { type: Schema.Types.ObjectId, ref: 'restaurant' },
+    name: {
     type: String
   },
   ar_name: {
