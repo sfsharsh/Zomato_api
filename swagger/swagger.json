@@ -1085,13 +1085,14 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/restaurantSchema"
+                                "$ref": "#/components/schemas/creategroup"
                             }
                         }
                     }
                 }
             }
-        },"/qr/getgroups": {
+        },
+        "/qr/getgroups": {
             "get": {
                 "tags": [
                     "QR"
@@ -1106,7 +1107,8 @@
                 "operationId": "getgroups",
                 "responses": {}
             }
-        },"/qr/getGroupbyID/{id}": {
+        },
+        "/qr/getGroupbyID/{id}": {
             "get": {
                 "tags": [
                     "QR"
@@ -1128,7 +1130,8 @@
                 ],
                 "responses": {}
             }
-        },"/qr/updateGroup/{id}": {
+        },
+        "/qr/updateGroup/{id}": {
             "put": {
                 "tags": [
                     "QR"
@@ -1152,7 +1155,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/restaurantSchema"
+                                "$ref": "#/components/schemas/updategroup"
                             }
                         }
                     },
@@ -1160,7 +1163,8 @@
                 },
                 "responses": {}
             }
-        },"/qr/changeStatus/{id}": {
+        },
+        "/qr/changeStatus/{id}": {
             "put": {
                 "tags": [
                     "QR"
@@ -1180,9 +1184,20 @@
                         "required": true
                     }
                 ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/changegroupstatus"
+                            }
+                        }
+                    },
+                    "required": true
+                },
                 "responses": {}
             }
-        },"/qr/deleteGroup/{id}": {
+        },
+        "/qr/deleteGroup/{id}": {
             "delete": {
                 "tags": [
                     "QR"
@@ -1381,21 +1396,6 @@
                         "required": true
                     }
                 ],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/deleteqrcode"
-                            }
-                        },
-                        "application/xml": {
-                            "schema": {
-                                "$ref": "#/components/schemas/deleteqrcode"
-                            }
-                        }
-                    },
-                    "required": true
-                },
                 "responses": {}
             }
         }
@@ -2151,7 +2151,7 @@
                     }
                 }
             },
-            "restaurantSchema": {
+            "creategroup": {
                 "type": "object",
                 "required": [
                     "group_type",
@@ -2170,9 +2170,76 @@
                     "arabic_group_name": {
                         "type": "string",
                         "example": "جبنه"
-                    }  
-                }           
-            },"createqrcode": {
+                    }
+                }
+            },
+            "getgroup": {
+                "type": "object",
+                "required": [],
+                "properties": {
+                    "id": {
+                        "type": "number",
+                        "example": "1"
+                    }
+                }
+            },
+            "getgroupbyid": {
+                "type": "object",
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "number",
+                        "example": "1"
+                    }
+                }
+            },
+            "updategroup": {
+                "type": "object",
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "group_type": {
+                        "type": "string",
+                        "example": "deserts"
+                    },
+                    "group_name": {
+                        "type": "string",
+                        "example": "adsfg"
+                    },
+                    "arabic_group_name": {
+                        "type": "string",
+                        "example": "جبنه"
+                    }
+                }
+            },
+            "changegroupstatus": {
+                "type": "object",
+                "required": [
+                    "status"
+                ],
+                "properties": {
+                    "status": {
+                        "type": "boolean",
+                        "example": true
+                    }
+                }
+            },
+            "deletegroup": {
+                "type": "object",
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "number",
+                        "example": "1"
+                    }
+                }
+            },
+            "createqrcode": {
                 "type": "object",
                 "required": [
                     "name",
@@ -2191,6 +2258,9 @@
                     "qr_code_group_id": {
                         "type": "string",
                         "example": "dhrhth4he4e"
+                    },
+                    "qr_code_image": {
+                        "type": "string"
                     }
                 }
             },
@@ -2233,6 +2303,9 @@
                     "qr_code_group_id": {
                         "type": "string",
                         "example": "dhrhth4he4e"
+                    },
+                    "qr_code_image": {
+                        "type": "string"
                     }
                 }
             },

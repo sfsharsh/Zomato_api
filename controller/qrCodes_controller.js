@@ -44,7 +44,9 @@ exports.getqrcode = async (req, res) => {
 exports.generateQR=async(req,res)=>{
     try{
         let id=req.params.id
-        let QR=
+        let QR=req.body
+    }catch{
+
     }
 }
 
