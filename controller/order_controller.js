@@ -20,6 +20,7 @@ exports.addorder = [
         } else {
             let { customer_name, remark, qr_code_id, qr_code_group, order_type, phone_number, country_code, order_items, special_notes, ar_special_notes, amount, quantity } = req.body
             let data = {
+                restaurant_id: req.currentUser,
                 customer_name: customer_name,
                 remark: remark,
                 qr_code_id: qr_code_id,
@@ -39,7 +40,7 @@ exports.addorder = [
     }];
 
 exports.getorder = async (req, res) => {
-    const d = await ORDER.find({})
+    const d = await ORDER.find({ restaurant_id: req.currentUser })
     if (!d) {
         return response.errorResponse(res, message.DATA_NOT_FOUND)
     } else {

@@ -2,6 +2,7 @@ const { default: mongoose, Model } = require("mongoose");
 const { Schema } = mongoose;
 
 const schema = new mongoose.Schema({
+    restaurant_id: { type: Schema.Types.ObjectId, ref: 'restaurant' },
     name: {
         type: String
     },

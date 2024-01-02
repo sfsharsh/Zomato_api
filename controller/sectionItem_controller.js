@@ -6,7 +6,7 @@ const response = require('../helper/response');
 const { body, validationResult } = require('express-validator');
 
 exports.getMenu = async (req, res) => {
-    const menu = await MENU.find({})
+    const menu = await MENU.find({ restaurant_id: req.currentUser })
     res.json(menu)
 }
 
@@ -38,6 +38,7 @@ exports.addSectionItem = [
                 arr.push(req.files[i].originalname)
             }
             let data = {
+                restaurant_id: req.currentUser,
                 name: sectionItem_name,
                 ar_name: ar_sectionItem_name,
                 image: arr,
@@ -58,7 +59,7 @@ exports.addSectionItem = [
     }];
 
 exports.getSectionItem = async (req, res) => {
-    const section = await SECTIONITEM.find({}).limit(5);
+    const section = await SECTIONITEM.find({ restaurant_id: req.currentUser }).limit(5);
     res.json(section)
 }
 

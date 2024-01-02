@@ -15,6 +15,7 @@ exports.addmodifier = [
         } else {
             let { name, ar_name, modifier } = req.body
             let data = {
+                restaurant_id: req.currentUser,
                 name: name,
                 ar_name: ar_name,
                 modifier: modifier
@@ -25,7 +26,7 @@ exports.addmodifier = [
     }];
 
 exports.getmodifier = async (req, res) => {
-    const d = await MODIFIER.find({})
+    const d = await MODIFIER.find({ restaurant_id: req.currentUser })
     if (!d) {
         return response.errorResponse(res, message.DATA_NOT_FOUND)
     } else {
