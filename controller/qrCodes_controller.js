@@ -91,7 +91,8 @@ exports.updateqrcode = [
                 return response.errorResponse(res, message.DATA_NOT_FOUND)
             }
         }
-    }];
+    }
+];
 
 exports.changeqrcodestatus = async (req, res) => {
     let id = req.params.id;
