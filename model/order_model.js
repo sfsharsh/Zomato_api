@@ -40,7 +40,7 @@ const schema = new mongoose.Schema({
      payment_status: {
         type: String
     },
-    payment_mode:{
+    payment111_mode:{
       type:String
     }
 }, {
