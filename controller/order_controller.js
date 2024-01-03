@@ -79,11 +79,6 @@ exports.updateorder = [
             let id = req.params.id;
             const v = await ORDER.find({ _id: id })
             if (v.length > 0) {
-                console.log(req.files[0]);
-                let arr = [];
-                for (let i = 0; i < req.files.length; i++) {
-                    arr.push(req.files[i].originalname)
-                }
                 let data = {
                     customer_name: customer_name,
                     remark: remark,
