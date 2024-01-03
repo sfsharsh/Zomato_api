@@ -2,7 +2,6 @@ const RESTAURANT = require('../model/restaurant_model');
 const message = require('../helper/message')
 const { body, validationResult } = require('express-validator');
 const jwt = require('jsonwebtoken');
-const sib = require('../service/sib')
 const response = require('../helper/response');
 const bcrypt = require('bcrypt');
 
