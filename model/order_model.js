@@ -9,11 +9,11 @@ const schema = new mongoose.Schema({
     remark: {
         type: String, "default": ""
     },
-    qr_code_id:{
-       type:String
+    qr_code_id: {
+        type: String
     },
-    qr_code_group_id:{
-        type:String
+    qr_code_group_id: {
+        type: String
     },
     order_type: {
         type: String
@@ -36,6 +36,9 @@ const schema = new mongoose.Schema({
     },
     quantity: {
         type: Number
+    },
+     payment_status: {
+        type: String
     }
 }, {
     timestamps: true
