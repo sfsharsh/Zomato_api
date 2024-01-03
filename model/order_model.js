@@ -39,9 +39,6 @@ const schema = new mongoose.Schema({
     },
      payment_status: {
         type: String
-    },
-    payment_mode:{
-      type:String
     }
 }, {
     timestamps: true
