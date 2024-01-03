@@ -1,4 +1,4 @@
-const QRGROUP = require('../model/qrCcommitodeGroup_model')
+const QRGROUP = require('../model/qrCodeGroup_model')
 const response = require('../helper/response');
 const message = require('../helper/message')
 const { body, validationResult } = require('express-validator');
