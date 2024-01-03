@@ -1,5 +1,4 @@
 module.exports = {
-
     successResponse: (res, msg) => {
         let data = {
             status: 200,
