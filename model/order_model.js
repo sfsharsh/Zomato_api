@@ -1,4 +1,5 @@
 const { default: mongoose, Model } = require("mongoose");
+const { stringify } = require("postman-request/lib/url-parse");
 const { Schema } = mongoose;
 
 const schema = new mongoose.Schema({
@@ -36,6 +37,12 @@ const schema = new mongoose.Schema({
     },
     quantity: {
         type: Number
+    },
+    payment_status:{
+        type: String
+    },
+    payment_mode:{
+        type: String
     }
 }, {
     timestamps: true

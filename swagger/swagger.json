@@ -1416,17 +1416,12 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/creatorder"
-                            }
-                        },
-                        "application/xml": {
-                            "schema": {
-                                "$ref": "#/components/schemas/creatorder"
+                                "$ref": "#/components/schemas/createorder"
                             }
                         },
                         "multipart/form-data": {
                             "schema": {
-                                "$ref": "#/components/schemas/creatorder"
+                                "$ref": "#/components/schemas/createorder"
                             }
                         }
                     },
@@ -1554,6 +1549,39 @@
                         "application/xml": {
                             "schema": {
                                 "$ref": "#/components/schemas/editorder"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/order/editorderStatus/{id}": {
+            "put": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " editorderStatus",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "editorderStatus ",
+                "operationId": "editorderStatus",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/createorder"
                             }
                         }
                     },

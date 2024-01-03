@@ -78,12 +78,7 @@ exports.updateorder = [
             let { customer_name, remark, qr_code_id, qr_code_group_id, order_type, phone_number, country_code, order_items, special_notes, ar_special_notes, amount, quantity } = req.body
             let id = req.params.id;
             const v = await ORDER.find({ _id: id })
-            if (v.length > 0) {
-                console.log(req.files[0]);
-                let arr = [];
-                for (let i = 0; i < req.files.length; i++) {
-                    arr.push(req.files[i].originalname)
-                }
+            if (v.length > 0) { 
                 let data = {
                     customer_name: customer_name,
                     remark: remark,
@@ -110,12 +105,26 @@ exports.editorder = async (req, res) => {
     let id = req.params.id;
     let data = req.body;
     try {
-        let d = await ORDER.UpdateOne({_id:id}, data, {new: true})
-        return response.successResponseWithData(res, d, "Successfully Editing Order")
+        await ORDER.updateOne({_id:id}, data, {new: true})
+        return response.successResponse(res,"Successfully Edit the Order")
     } catch (e) {
         return response.errorResponse(res, e)
     }
 }
+
+exports.editorderStatus = async (req, res) => {
+    let id = req.params.id;
+    let {order_type} = req.body;
+    console.log(order_type,id)
+    try {
+        await ORDER.updateOne({_id:id},{$set:{order_type:order_type}})
+        return response.successResponse(res, "Successfully Update Order Status")
+    } catch (e) {
+        console.log(e)
+        return response.errorResponse(res, e)
+    }
+}
+
 
 
 exports.deleteorder = async (req, res) => {

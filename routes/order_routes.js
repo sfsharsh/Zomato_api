@@ -9,7 +9,8 @@ const { auth } = require('../middleware/auth');
 routes.post('/addorder',auth,upload, order.addorder);
 routes.get('/getorder/:id',auth, order.getorder);
 routes.get('/getorderbyid/:id',auth, order.getorderById);
-routes.put('/updateorder/:id',auth,upload, order.updateorder);
+routes.put('/updateorder/:id',auth,order.updateorder);
+routes.put('/editorderStatus/:id',auth,order.editorderStatus);
 routes.delete('/deleteorder/:id',auth,order.deleteorder);
 
 exports.routes = routes;
