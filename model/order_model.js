@@ -38,7 +38,7 @@ const schema = new mongoose.Schema({
     quantity: {
         type: Number
     },
-    payment_status:{
+    paymnt_status:{
         type: String
     }
 }, {
