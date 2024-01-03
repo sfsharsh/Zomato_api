@@ -1398,6 +1398,195 @@
                 ],
                 "responses": {}
             }
+        },
+        "/order/addorder": {
+            "post": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " addorder",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "addorder ",
+                "operationId": "addorder",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/creatorder"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/creatorder"
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/creatorder"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/order/getorder": {
+            "get": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " getorder",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "getorder ",
+                "operationId": "getorder",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/getorder"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/order/getorderbyid/{id}": {
+            "get": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " getorderbyid",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "getorderbyid ",
+                "operationId": "getorderbyid",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/order/updateorder/{id}": {
+            "put": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " updateorder",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "updateorder ",
+                "operationId": "updateorder",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/updateorder"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/updateorder"
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/updateorder"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/order/editorder/{id}": {
+            "put": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " editorder",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "editorder ",
+                "operationId": "editorder",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/editorder"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/editorder"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/order/deleteorder/{id}": {
+            "delete": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": " deleteorder",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "deleteorder ",
+                "operationId": "deleteorder",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
         }
     },
     "externalDocs": {
@@ -2329,6 +2518,150 @@
                 "properties": {
                     "id": {
                         "type": "number",
+                        "example": "1"
+                    }
+                }
+            },
+            "createorder": {
+                "type": "object",
+                "required": [
+                    "customer_name",
+                    "qr_code_id",
+                    "qr_code_group",
+                    "order_type",
+                    "phone_number",
+                    "country_code",
+                    "order_items"
+                ],
+                "properties": {
+                    "customer_name": {
+                        "type": "string",
+                        "example": "Owenr"
+                    },
+                    "qr_code_id": {
+                        "type": "string",
+                        "example": "adsfg"
+                    },
+                    "qr_code_group_id": {
+                        "type": "string",
+                        "example": "dhrhth4he4e"
+                    },
+                    "order_type": {
+                        "type": "string"
+                    },
+                    "phone_number": {
+                        "type": "string"
+                    },
+                    "country_code": {
+                        "type": "string"
+                    },
+                    "order_items": {
+                        "type": []
+                    },
+                    "special_notes": {
+                        "type": "string"
+                    },
+                    "ar_special_notes": {
+                        "type": "string"
+                    },
+                    "amount": {
+                        "type": "Number"
+                    },
+                    "quantity": {
+                        "type": "Number"
+                    }
+                }
+            },
+            "getorder": {
+                "type": "object",
+                "required": [],
+                "properties": {
+                    "id": {
+                        "type": "number",
+                        "example": "1"
+                    },
+                    "order_type": {
+                        "type": "string",
+                        "example": "Dine In"
+                    }
+                }
+            },
+            "getorderbyid": {
+                "type": "object",
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "number",
+                        "example": "1"
+                    }
+                }
+            },
+            "updateorder": {
+                "type": "object",
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "customer_name": {
+                        "type": "string",
+                        "example": "Owenr"
+                    },
+                    "qr_code_id": {
+                        "type": "string",
+                        "example": "adsfg"
+                    },
+                    "qr_code_group_id": {
+                        "type": "string",
+                        "example": "dhrhth4he4e"
+                    },
+                    "order_type": {
+                        "type": "string"
+                    },
+                    "phone_number": {
+                        "type": "string"
+                    },
+                    "country_code": {
+                        "type": "string"
+                    },
+                    "order_items": {
+                        "type": []
+                    },
+                    "special_notes": {
+                        "type": "string"
+                    },
+                    "ar_special_notes": {
+                        "type": "string"
+                    },
+                    "amount": {
+                        "type": "Number"
+                    },
+                    "quantity": {
+                        "type": "Number"
+                    }
+                }
+            },
+            "editorder": {
+                "type": "object",
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "example": "1"
+                    }
+                }
+            },
+            "deleteorder": {
+                "type": "object",
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
                         "example": "1"
                     }
                 }
