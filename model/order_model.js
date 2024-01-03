@@ -2,7 +2,6 @@ const { default: mongoose, Model } = require("mongoose");
 const { Schema } = mongoose;
 
 const schema = new mongoose.Schema({
-    // qr_code_id: { type: Schema.Types.ObjectId, ref: 'restaurant' },
     restaurant_id: { type: Schema.Types.ObjectId, ref: 'restaurant' },
     customer_name: {
         type: String

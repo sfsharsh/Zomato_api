@@ -40,7 +40,7 @@ exports.addorder = [
     }];
 
 exports.getorder = async (req, res) => {
-    let {order_type}=req.body
+    let order_type=req.params.id
     const d = await ORDER.find({$and:[{ restaurant_id: req.currentUser ,order_type:order_type}]})
     if (!d) {
         return response.errorResponse(res, message.DATA_NOT_FOUND)

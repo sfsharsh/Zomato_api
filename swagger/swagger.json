@@ -1435,7 +1435,7 @@
                 "responses": {}
             }
         },
-        "/order/getorder": {
+        "/order/getorder/{id}": {
             "get": {
                 "tags": [
                     "Restaurant"
@@ -1448,16 +1448,13 @@
                 ],
                 "description": "getorder ",
                 "operationId": "getorder",
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/getorder"
-                            }
-                        }
-                    },
-                    "required": true
-                },
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
                 "responses": {}
             }
         },
