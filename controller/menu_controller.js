@@ -74,7 +74,6 @@ exports.updateMenu = [
                     arr.push(req.files[i].originalname)
                 }
                 let data = {
-                    restaurant_id: req.currentUser,
                     name: name,
                     ar_name: ar_name,
                     image: arr,

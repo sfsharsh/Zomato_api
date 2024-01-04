@@ -9,5 +9,7 @@ routes.post('/login', restaurant.login);
 routes.post('/changepassword',auth,restaurant.changePassword)
 routes.put('/updateRestaurant',auth, restaurant.updateRestaurant);
 routes.delete('/deleteRestaurant',auth, restaurant.deleteRestaurant);
+routes.get('/ListFeedbacks',auth, restaurant.ListFeedbacks);
+routes.get('/searchFeedback',auth, restaurant.searchFeedback);
 
 exports.routes = routes; 

@@ -1,4 +1,5 @@
 const RESTAURANT = require('../model/restaurant_model');
+const FEEDBACK = require('../model/feedback_model');
 const message = require('../helper/message')
 const { body, validationResult } = require('express-validator');
 const jwt = require('jsonwebtoken');
@@ -105,3 +106,29 @@ exports.deleteRestaurant = async (req, res) => {
         return response.successResponse(res,message.DATA_DELETED_SUCCESSFULLY)
     }
 }
+
+exports.ListFeedbacks = async (req, res) => {
+    const d = await FEEDBACK.find({ restaurant_id: req.currentUser })
+    if (!d) {
+        return response.errorResponse(res, message.DATA_NOT_FOUND)
+    } else {
+        return response.successResponseWithData(res, d, message.GET_DATA_SUCCESSFULLY)
+    }
+
+};
+
+exports.searchFeedback = async (req, res) => {
+    const key = req.query.search;
+    const d = await FEEDBACK.find({
+      $or: [
+        { "thoughts": { $regex: key, '$options' : 'i' } },
+        { "rate_of_exeperience": { $regex: key, '$options' : 'i' } }  
+      ]
+    })
+    if (d.length==0) {
+        return response.errorResponse(res, message.DATA_NOT_FOUND)
+    } else {
+        return response.successResponseWithData(res, d, message.GET_DATA_SUCCESSFULLY)
+    }
+
+};

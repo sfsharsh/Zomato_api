@@ -1079,6 +1079,11 @@
                     "QR"
                 ],
                 "summary": " createQRgroup",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
                 "description": "createQRgroup ",
                 "operationId": "createQRgroup",
                 "requestBody": {
@@ -1584,7 +1589,261 @@
                 ],
                 "responses": {}
             }
-        }
+        },
+        "/restaurant/addRestaurantMember": {
+            "post": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": "addRestaurantMember",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "addRestaurantMember",
+                "operationId": "addRestaurantMember",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddSubUser"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddSubUser"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/restaurant/deleteSubUser/{id}": {
+            "delete": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": "deleteSubUser",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "deleteSubUser",
+                "operationId": "deleteSubUser",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/restaurant/getSubUserList": {
+            "get": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": "getSubUserList",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "getSubUserList",
+                "operationId": "getSubUserList",
+                "parameters": [
+                    {
+                        "name": "pageNumber",
+                        "in": "query",
+                        "description": "Enter pageNumber",
+                        "type": "number"
+                    },
+                    {
+                        "name": "role",
+                        "description": "Role ",
+                        "type": "number",
+                        "example": 1
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/restaurant/searchSubUser": {
+            "post": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": "searchSubUser",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "searchSubUser",
+                "operationId": "searchSubUser",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/searchQrGroup"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/searchQrGroup"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/restaurant/updateSubUser/{id}": {
+            "put": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": "updateSubUser",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "updateSubUser",
+                "operationId": "updateSubUser",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/updateSubUser"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/updateSubUser"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/restaurant/updatePermissions/{id}": {
+            "put": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": "updatePermissions",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "updatePermissions",
+                "operationId": "updatePermissions",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/updatePermissions"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/updatePermissions"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/restaurant/viewPermissions": {
+            "get": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": "viewPermissions",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "viewPermissions",
+                "operationId": "viewPermissions",
+                "responses": {}
+            }
+        },
+        "/restaurant/ListFeedbacks": {
+          "get": {
+            "tags": [
+                "Restaurant"
+                ],
+                "summary": "ListFeedbacks",
+                "security": [
+                  {
+                    "bearerAuth": []
+                  }
+                ],
+                "description": "ListFeedbacks",
+                "operationId": "ListFeedbacks",
+                
+                "parameters" : [{
+                    "name":"rating",
+                    "description":"Find Rating ",
+                    "type":"string",
+                    "example":1   
+                 }],
+               
+                "responses": {}
+              }
+        },
+        "/restaurant/searchFeedback":{
+          "get":{
+            "tags":[
+              "Restaurant"
+            ],
+            "summary":"restaurentsSearchFeedback",
+            "security":[
+              {
+                "bearerAuth": []
+              }
+            ],
+            "description":"restaurentsSearchFeedback",
+            "operationId":"restaurentsSearchFeedback",
+            "parameters":[
+              {
+                "name":"search",
+                "in":"query",
+                "required":false
+              }
+            ],
+            "responses":{}
+          }
+            }
     },
     "externalDocs": {
         "description": "Find out more about Swagger",
@@ -2660,6 +2919,95 @@
                     "id": {
                         "type": "string",
                         "example": "1"
+                    }
+                }
+            },
+            "AddSubUser": {
+                "type": "object",
+                "required": [
+                    "email",
+                    "first_name",
+                    "last_name",
+                    "role"
+                ],
+                "properties": {
+                    "email": {
+                        "type": "string",
+                        "example": "abc@gmail.com"
+                    },
+                    "first_name": {
+                        "type": "string",
+                        "example": "steve"
+                    },
+                    "last_name": {
+                        "type": "string",
+                        "example": "smith"
+                    },
+                    "role": {
+                        "type": "number",
+                        "example": "1",
+                        "description": "1=> Owner , 2 => Super Admin , 3=> Admin , 4=> staff"
+                    }
+                }
+            },
+            "updateSubUser": {  
+                "type": "object",
+                "required": [
+                    "_id"
+                ],
+                "properties": {
+                    "email": {
+                        "type": "string",
+                        "example": "abc@gmail.com"
+                    },
+                    "password": {
+                        "type": "string",
+                        "example": "password"
+                    },
+                    "first_name": {
+                        "type": "string",
+                        "example": "steve"
+                    },
+                    "last_name": {
+                        "type": "string",
+                        "example": "smith"
+                    },
+                    "role": {
+                        "type": "number",
+                        "example": "1",
+                        "description": "1=> Owner , 2 => Super Admin , 3=> Admin , 4=> staff"
+                    }
+                }
+            },
+            "searchQrGroup": {
+              "type": "object",
+              "required": [],
+              "properties": {
+                "search": {
+                  "type": "string",
+                  "example": "test"
+                },
+                "pageNumber" :{
+                  "type": "number",
+                  "example": 1
+                }   
+              }
+            },
+            "updatePermissions": {
+                "type": "object",
+                "required": [
+                    "permission_id",
+                    "module_name",
+                    "status"
+                ],
+                "properties": {
+                    "module_name": {
+                        "type": "string",
+                        "example": "profile"
+                    },
+                    "status": {
+                        "type": "boolean",
+                        "example": false
                     }
                 }
             }
