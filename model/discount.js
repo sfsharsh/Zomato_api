@@ -28,7 +28,7 @@ const schema = new mongoose.Schema({
         type: String,
     },
     discount: {
-        type: Float,
+        type:Number,
     },
     discount_applicable_on: {
         type: JSON,

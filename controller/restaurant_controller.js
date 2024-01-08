@@ -16,6 +16,7 @@ exports.login = [
             return response.errorResponse(res, result.array()[0].msg);
         } else {
             let { email, password } = req.body
+            console.log(email,password);
             const v = await RESTAURANT.findOne({ email: email });
             if (!v) {
                 return response.errorResponse(res, message.WRONG_EMAIL)

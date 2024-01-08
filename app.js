@@ -23,6 +23,7 @@ const modifierRoutes = require('./routes/modifier_routes');
 const qrgroupRoutes= require('./routes/orderMenu_group_Routes')
 const qrCodes= require('./routes/qrCodes_Routes')
 const subUserRoutes= require('./routes/userManagement_routes')
+const discountRoutes= require('./routes/discount_routes')
 
 
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerJSDocs)); 
@@ -36,6 +37,8 @@ app.use('/restaurant', restaurantRoutes.routes);
 app.use('/restaurant', subUserRoutes.routes);
 app.use('/qr', qrgroupRoutes.routes);
 app.use('/qr', qrCodes.routes);
+app.use('/discount', discountRoutes.routes);
+
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
