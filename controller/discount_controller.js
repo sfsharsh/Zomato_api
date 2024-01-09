@@ -82,7 +82,7 @@ exports.createDiscountItemPrices = [
     }];
 
 
-exports.getDiscount = async (req, res) => {
+exports.ListRestaurentDiscounts = async (req, res) => {
     const d = await DISCOUNT.find({ restaurant_id: req.currentUser })
     if (!d) {
         return response.errorResponse(res, message.DATA_NOT_FOUND)
@@ -91,3 +91,23 @@ exports.getDiscount = async (req, res) => {
     }
 
 };
+exports.ViewRestaurentDiscounts = async (req, res) => {
+    let id = req.query.discount_id
+    const d = await DISCOUNT.find({ _id: id })
+    if (d.length == 0) {
+        return response.errorResponse(res, message.DATA_NOT_FOUND)
+    } else {
+        return response.successResponseWithData(res, d, message.GET_DATA_SUCCESSFULLY)
+    }
+
+};
+
+exports.deleteDiscount = async (req, res) => {
+    let id = req.query.discount_id
+    const d = await DISCOUNT.deleteOne({ _id: id })
+    if (!d) {
+        return response.errorResponse(res, message.FAILED_TO_DELETE_DATA)
+    } else {
+        return response.successResponse(res, message.DATA_DELETED_SUCCESSFULLY)
+    }
+}

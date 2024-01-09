@@ -100,7 +100,6 @@ exports.changemenustatus = async (req, res) => {
         return response.errorResponse(res, message.DATA_NOT_FOUND)
     }
 };
-
 exports.deleteMenu = async (req, res) => {
     let id = req.params.id
     const d = await MENU.deleteOne({ _id: id })

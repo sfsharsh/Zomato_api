@@ -1798,52 +1798,194 @@
             }
         },
         "/restaurant/ListFeedbacks": {
-          "get": {
-            "tags": [
-                "Restaurant"
+            "get": {
+                "tags": [
+                    "Restaurant"
                 ],
                 "summary": "ListFeedbacks",
                 "security": [
-                  {
-                    "bearerAuth": []
-                  }
+                    {
+                        "bearerAuth": []
+                    }
                 ],
                 "description": "ListFeedbacks",
                 "operationId": "ListFeedbacks",
-                
-                "parameters" : [{
-                    "name":"rating",
-                    "description":"Find Rating ",
-                    "type":"string",
-                    "example":1   
-                 }],
-               
+                "parameters": [
+                    {
+                        "name": "rating",
+                        "description": "Find Rating ",
+                        "type": "string",
+                        "example": 1
+                    }
+                ],
                 "responses": {}
-              }
-        },
-        "/restaurant/searchFeedback":{
-          "get":{
-            "tags":[
-              "Restaurant"
-            ],
-            "summary":"restaurentsSearchFeedback",
-            "security":[
-              {
-                "bearerAuth": []
-              }
-            ],
-            "description":"restaurentsSearchFeedback",
-            "operationId":"restaurentsSearchFeedback",
-            "parameters":[
-              {
-                "name":"search",
-                "in":"query",
-                "required":false
-              }
-            ],
-            "responses":{}
-          }
             }
+        },
+        "/restaurant/searchFeedback": {
+            "get": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": "restaurentsSearchFeedback",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "restaurentsSearchFeedback",
+                "operationId": "restaurentsSearchFeedback",
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "required": false
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/discount/createDiscount": {
+            "post": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": "createDiscount",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "createDiscount",
+                "operationId": "createDiscount",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/createDiscount"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/createDiscount"
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/createDiscount"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/discount/editDiscount": {
+            "post": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": "editDiscount",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "editDiscount",
+                "operationId": "editDiscount",
+                "parameters": [
+                    {
+                        "name": "discount_id",
+                        "in": "query",
+                        "required": true,
+                        "type": "number",
+                        "example": 1
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/editDiscount"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/editDiscount"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/discount/ListRestaurentDiscounts": {
+            "get": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": "ListRestaurentDiscounts",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "ListRestaurentDiscounts",
+                "operationId": "ListRestaurentDiscounts",
+                "responses": {}
+            }
+        },
+        "/discount/ViewRestaurentDiscounts": {
+            "get": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": "ViewRestaurentDiscounts",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "ViewRestaurentDiscounts",
+                "operationId": "ViewRestaurentDiscounts",
+                "parameters": [
+                    {
+                        "name": "discount_id",
+                        "in": "query",
+                        "required": true,
+                        "type": "number",
+                        "example": 1
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/discount/deleteDiscount": {
+            "delete": {
+                "tags": [
+                    "Restaurant"
+                ],
+                "summary": "deleteDiscount",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "description": "deleteDiscount",
+                "operationId": "deleteDiscount",
+                "parameters": [
+                    {
+                        "name": "discount_id",
+                        "in": "query",
+                        "required": true,
+                        "type": "number",
+                        "example": 1
+                    }
+                ],
+                "responses": {}
+            }
+        }
     },
     "externalDocs": {
         "description": "Find out more about Swagger",
@@ -2950,7 +3092,7 @@
                     }
                 }
             },
-            "updateSubUser": {  
+            "updateSubUser": {
                 "type": "object",
                 "required": [
                     "_id"
@@ -2980,18 +3122,18 @@
                 }
             },
             "searchQrGroup": {
-              "type": "object",
-              "required": [],
-              "properties": {
-                "search": {
-                  "type": "string",
-                  "example": "test"
-                },
-                "pageNumber" :{
-                  "type": "number",
-                  "example": 1
-                }   
-              }
+                "type": "object",
+                "required": [],
+                "properties": {
+                    "search": {
+                        "type": "string",
+                        "example": "test"
+                    },
+                    "pageNumber": {
+                        "type": "number",
+                        "example": 1
+                    }
+                }
             },
             "updatePermissions": {
                 "type": "object",
@@ -3008,6 +3150,196 @@
                     "status": {
                         "type": "boolean",
                         "example": false
+                    }
+                }
+            },
+            "createDiscount": {
+                "type": "object",
+                "required": [
+                    "title",
+                    "ar_title",
+                    "discount_type",
+                    "description",
+                    "ar_description"
+                ],
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "example": "discount test title"
+                    },
+                    "ar_title": {
+                        "type": "string",
+                        "example": "Arabic description testing for discount"
+                    },
+                    "discount_type": {
+                        "type": "number",
+                        "example": 1,
+                        "description": "1=> free Item Discount , 2 => Item Price Discount , 3=> Total Price Discount"
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "description testing for discount"
+                    },
+                    "ar_description": {
+                        "type": "string",
+                        "example": "Arabic description testing for discount"
+                    },
+                    "maximum_order_amount": {
+                        "type": "number",
+                        "example": 1000
+                    },
+                    "minimum_order_amount": {
+                        "type": "number",
+                        "example": 500
+                    },
+                    "discount": {
+                        "type": "number",
+                        "example": 10
+                    },
+                    "discount_item_free": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "offer_item_id": {
+                                    "type": "number",
+                                    "example": 1,
+                                    "required": true
+                                },
+                                "free_item_id": {
+                                    "type": "array",
+                                    "example": [
+                                        51,
+                                        54,
+                                        52
+                                    ],
+                                    "required": true
+                                },
+                                "quantity": {
+                                    "type": "number",
+                                    "example": 1,
+                                    "required": true
+                                }
+                            }
+                        }
+                    },
+                    "discount_item_prices": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "offer_item_id": {
+                                    "type": "number",
+                                    "example": 1,
+                                    "required": true
+                                },
+                                "minimum_quantity": {
+                                    "type": "number",
+                                    "example": 1,
+                                    "required": true
+                                },
+                                "discount": {
+                                    "type": "number",
+                                    "example": 20,
+                                    "required": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "editDiscount": {
+                "type": "object",
+                "required": [
+                    "discount_id"
+                ],
+                "properties": {
+                    "discount_id": {
+                        "type": "number",
+                        "example": 1
+                    },
+                    "title": {
+                        "type": "string",
+                        "example": "discount test title"
+                    },
+                    "ar_title": {
+                        "type": "string",
+                        "example": "Arabic description testing for discount"
+                    },
+                    "discount_type": {
+                        "type": "number",
+                        "example": 1,
+                        "description": "1=> free Item Discount , 2 => Item Price Discount , 3=> Total Price Discount"
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "description testing for discount"
+                    },
+                    "ar_description": {
+                        "type": "string",
+                        "example": "Arabic description testing for discount"
+                    },
+                    "maximum_order_amount": {
+                        "type": "number",
+                        "example": 1000
+                    },
+                    "minimum_order_amount": {
+                        "type": "number",
+                        "example": 500
+                    },
+                    "discount": {
+                        "type": "number",
+                        "example": 10
+                    },
+                    "discount_item_free": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "offer_item_id": {
+                                    "type": "number",
+                                    "example": 1,
+                                    "required": true
+                                },
+                                "free_item_id": {
+                                    "type": "array",
+                                    "example": [
+                                        51,
+                                        54,
+                                        52
+                                    ],
+                                    "required": true
+                                },
+                                "quantity": {
+                                    "type": "number",
+                                    "example": 1,
+                                    "required": true
+                                }
+                            }
+                        }
+                    },
+                    "discount_item_prices": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "offer_item_id": {
+                                    "type": "number",
+                                    "example": 1,
+                                    "required": true
+                                },
+                                "minimum_quantity": {
+                                    "type": "number",
+                                    "example": 1,
+                                    "required": true
+                                },
+                                "discount": {
+                                    "type": "number",
+                                    "example": 20,
+                                    "required": true
+                                }
+                            }
+                        }
                     }
                 }
             }
